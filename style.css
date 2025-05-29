@@ -420,6 +420,12 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     height: 30px;
     border-radius: 50%;
 }
+
+.contato-link{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
 /* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA CONTATO (.container2 e .sobre2) === */
 
 
