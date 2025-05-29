@@ -94,8 +94,8 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     /* Cor de fundo ao passar o mouse */
 }
 
-/* ESTILOS PARA OUTROS CONTAINERS (NÃO DA GALERIA) - MANTIDOS DO USUÁRIO */
-.container {
+/* ESTILOS PARA OUTROS CONTAINERS (NÃO DA GALERIA E NÃO DA PÁGINA SOBRE/CONTATO PRINCIPAL) - MANTIDOS DO USUÁRIO */
+.container { /* Este .container não é o da página Sobre nem Contato */
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
@@ -291,76 +291,147 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
 /* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
 
 
-/* === INÍCIO DOS ESTILOS ESPECÍFICOS DA PÁGINA CONTATO (.container2 e .sobre2) === */
-.container2 { /* Container da página de contato */
+/* === ESTILOS PARA PÁGINA CONTATO E/OU SOBRE USANDO .container2 === */
+.container2 { /* Container usado pela página de Contato e Sobre */
     max-width: 1200px;
     margin: 20px auto; 
     display: grid;
-    grid-template-columns: 1fr; 
+    /* A configuração de grid-template-columns e areas é específica para cada página que usa .container2 */
+    /* Para a página Sobre (com .sobre) e Contato (com .sobre2), o grid é definido como 1 coluna pelos grid-template-areas */
+    grid-template-columns: 1fr; /* Garante que o conteúdo ocupe a largura disponível */
     grid-template-areas: 
-        "contato-principal"
-        "contato-footer";
+        "main-content" /* Nome genérico para a área de conteúdo principal */
+        "page-footer";  /* Nome genérico para o rodapé da seção */
     gap: 20px;
     padding: 20px;
     border: 1px solid #fff; 
 }
 
-.container2 .sobre2 { /* Seção de conteúdo principal da página de contato */
-    grid-area: contato-principal; 
+/* --- Início dos Estilos APENAS para Página "Sobre" --- */
+/* (quando <div class="sobre"> está dentro de <section class="container2">) */
+
+.container2 .sobre { /* Seção de conteúdo principal da página Sobre */
+    grid-area: main-content; /* Mapeia para a área de conteúdo principal */
     background-color: #1E3A8A; 
     color: #F0F4FF; 
     border-radius: 20px; 
-    padding: 30px 35px; /* Padding interno levemente ajustado para mais respiro */
-    height: auto; 
+    padding: 30px 35px; /* Padding interno ajustado */
+    height: auto; /* Altura se ajusta ao conteúdo, sobrescreve o .sobre genérico */
     width: 100%; 
 }
 
-.container2 .sobre2 h2 { /* Título "Contatos" na página de contato */
+.container2 .sobre h2 { /* Título "Sobre Mim" na página Sobre */
     padding: 0; 
-    margin: 0 0 25px 0; /* Margem inferior aumentada para mais separação */
-    font-size: 2em; /* Mantido o tamanho original do usuário para este H2 */
+    margin: 0 0 25px 0; /* Margem inferior ajustada */
+    font-size: 2.1em; /* Tamanho da fonte ajustado */
     text-align: center; 
     color: #a9c5ff; 
     border-bottom: 1px solid #5a6882; 
     padding-bottom: 12px; /* Espaço abaixo da linha separadora */
 }
 
+.container2 .sobre p {
+    font-size: 1.0em; /* Tamanho de fonte ajustado para parágrafos */
+    line-height: 1.7; /* Altura da linha ajustada para melhor legibilidade */
+    margin-top: 0; 
+    margin-bottom: 20px; /* Espaçamento consistente abaixo dos parágrafos */
+    max-width: 750px; /* Limita a largura para melhor leitura */
+    margin-left: auto; /* Centraliza o bloco de parágrafo se max-width for atingido */
+    margin-right: auto; /* Centraliza o bloco de parágrafo se max-width for atingido */
+    text-align: left; /* Alinhamento padrão para parágrafos longos */
+}
+
+.container2 .sobre .listasidenav { /* Lista de categorias no final da página Sobre */
+    margin-top: 35px; /* Espaço antes da lista */
+    padding-top: 20px; /* Espaço acima da lista, dentro da borda */
+    border-top: 1px solid #5a6882; /* Linha separadora acima da lista */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 10px 15px; /* Espaçamento entre os links */
+    list-style: none; 
+    padding-left: 0; 
+}
+
+.container2 .sobre .listasidenav li {
+    padding: 0; 
+}
+
+.container2 .sobre .listasidenav li a {
+    background-color: #3b5998; 
+    color: #fff; 
+    padding: 8px 16px; /* Padding interno dos links */
+    border-radius: 5px; 
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    font-size: 0.9em; 
+}
+
+.container2 .sobre .listasidenav li a:hover {
+    background-color: #007bff; 
+    transform: translateY(-2px); 
+}
+/* --- Fim dos Estilos APENAS para Página "Sobre" --- */
+
+
+/* --- Início dos Estilos APENAS para Página "Contato" --- */
+/* (quando <div class="sobre2"> está dentro de <section class="container2">) */
+.container2 .sobre2 { /* Seção de conteúdo principal da página de contato */
+    grid-area: main-content; /* Usa a mesma área do grid que a página Sobre */
+    background-color: #1E3A8A; 
+    color: #F0F4FF; 
+    border-radius: 20px; 
+    padding: 30px 35px; 
+    height: auto; 
+    width: 100%; 
+}
+
+.container2 .sobre2 h2 { /* Título "Contatos" na página de contato */
+    padding: 0; 
+    margin: 0 0 25px 0; 
+    font-size: 2em; 
+    text-align: center; 
+    color: #a9c5ff; 
+    border-bottom: 1px solid #5a6882; 
+    padding-bottom: 12px; 
+}
+
 .container2 .sobre2 h3 { /* Subtítulos na página de contato */
     padding: 0; 
-    margin: 30px 0 12px 0; /* Margem superior aumentada, inferior ajustada */
-    font-size: 1.5em; /* Tamanho da fonte para subtítulos */
+    margin: 30px 0 12px 0; 
+    font-size: 1.5em; 
     color: #a9c5ff; 
     border-bottom: 1px dashed #5a6882; 
-    padding-bottom: 6px; /* Espaço abaixo da linha tracejada */
+    padding-bottom: 6px; 
     text-align: left; 
 }
 
 .container2 .sobre2 p {
-    font-size: 1em; /* Tamanho de fonte padrão para parágrafos */
-    line-height: 1.7; /* Altura da linha aumentada para melhor legibilidade */
+    font-size: 1em; 
+    line-height: 1.7; 
     margin-top: 0; 
-    margin-bottom: 18px; /* Espaçamento consistente abaixo dos parágrafos */
-    max-width: 100%; /* Limita a largura para melhor leitura (mantido) */
+    margin-bottom: 18px; 
+    max-width: 700px; /* Mantido para parágrafos na página de contato */
 }
 
-/* Estilo para os parágrafos que contêm informações de contato específicas */
-.container2 .sobre2 p.info-contato { /* Adicione esta classe aos <p> com infos de contato no HTML */
-    margin-bottom: 12px; /* Margem inferior para itens de lista de contato */
-    padding-left: 12px; /* Indentação para itens de contato */
-    border-left: 3px solid #689ef3; /* Destaque visual à esquerda */
+.container2 .sobre2 p.info-contato { 
+    margin-bottom: 12px; 
+    padding-left: 12px; 
+    border-left: 3px solid #689ef3; 
     font-size: 1em; 
     line-height: 1.7; 
 }
 
 
-.container2 .sobre2 .listasidenav { /* Lista de categorias no final da página de contato */
-    margin-top: 40px; /* Mais espaço antes da lista */
-    padding-top: 25px; /* Espaço acima da lista, dentro da borda */
-    border-top: 1px solid #5a6882; /* Linha separadora acima da lista */
+.container2 .sobre2 .listasidenav { 
+    margin-top: 40px; 
+    padding-top: 25px; 
+    border-top: 1px solid #5a6882; 
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    gap: 12px 18px; /* Espaçamento entre os links */
+    gap: 12px 18px; 
     list-style: none; 
     padding-left: 0; 
 }
@@ -372,7 +443,7 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
 .container2 .sobre2 .listasidenav li a {
     background-color: #3b5998; 
     color: #fff; 
-    padding: 8px 18px; /* Padding interno dos links */
+    padding: 8px 18px; 
     border-radius: 5px; 
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease;
@@ -384,9 +455,11 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     background-color: #007bff; 
     transform: translateY(-2px); 
 }
+/* --- Fim dos Estilos APENAS para Página "Contato" --- */
 
-.container2 .footer2 { /* Rodapé da página de contato */
-    grid-area: contato-footer; 
+
+.container2 .footer2 { /* Rodapé para páginas que usam .container2 (Sobre, Contato) */
+    grid-area: page-footer; /* Mapeia para a área de rodapé definida em .container2 */
     background-color: #6a6969; 
     border-radius: 20px; 
     text-align: center;
@@ -421,82 +494,84 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     border-radius: 50%;
 }
 
-.contato-link{
+.contato-link{ /* Estilo genérico para links de contato, se usado */
     color: #ffffff;
     text-decoration: underline;
 }
 
-/* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA CONTATO (.container2 e .sobre2) === */
 
-
-/* ESTILOS GENÉRICOS E PARA OUTRAS PÁGINAS (SOBRE) - MANTIDOS DO USUÁRIO */
-/* Sidenav genérico (pode ser usado por .container ou .container2, mas .container2 .sobre2 tem precedência para contato) */
-.sidenav {
-    grid-area: sidenav;
+/* ESTILOS GENÉRICOS - MANTIDOS DO USUÁRIO */
+/* Sidenav genérico (usado por .container, mas .container2 .sobre e .container2 .sobre2 têm precedência) */
+.sidenav { /* Este é o .sidenav genérico do usuário, usado por .container (página home, por exemplo) */
+    grid-area: sidenav; /* Mapeado para o grid-template-areas de .container */
     background-color: #1E3A8A;
     color: #F0F4FF;
     border-radius: 20px;
     padding: 20px;
-    height: 700px; /* Altura fixa do usuário */
-    width: 300px; /* Largura fixa do usuário */
+    height: 700px; 
+    width: 300px; 
 }
 
-div p { /* Estilo genérico do usuário, pode ser sobrescrito por seletores mais específicos */
+div p { 
     margin-top: 10px;
 }
 
-.listasidenav { /* Estilo genérico do usuário */
+.listasidenav { /* Este é o .listasidenav genérico, usado por .sidenav genérico ou se não houver um mais específico */
     text-decoration: none;
     list-style: none;
+    /* padding: 0;  Adicionado para resetar, caso necessário */
+    /* margin: 0; Adicionado para resetar, caso necessário */
 }
 
-li { /* Estilo genérico do usuário */
+li { 
     padding: 5px 0px 10px 0;
 }
 
-li a { /* Estilo genérico do usuário */
+li a { 
     color: #fff;
 }
 
-div h2 { /* Estilo genérico do usuário */
+div h2 { 
     color: #689ef3;
 }
 
-.fotos { /* Estilo genérico para .fotos do usuário */
+.fotos { 
     padding: 20px 0 0px 0;
 }
 
-/* Footer genérico (pode ser usado por .container ou .container2, mas .container2 .footer2 tem precedência para contato) */
+/* Footer genérico (usado por .container, mas .container2 .footer2 tem precedência para Sobre/Contato) */
 .footer {
-    grid-area: footer;
+    grid-area: footer; /* Mapeado para o grid-template-areas de .container */
     background-color: #6a6969;
     border-radius: 20px;
     text-align: center;
     padding: 30px;
 }
 
-.footer h3 { /* Dentro do .footer genérico */
+.footer h3 { 
     margin-bottom: 15px;
 }
 
-.footer p { /* Dentro do .footer genérico */
+.footer p { 
     margin-bottom: 15px;
 }
 
-.footer .social-icons { /* Dentro do .footer genérico */
+.footer .social-icons { 
     display: flex;
     justify-content: center;
     gap: 15px;
 }
 
-.footer .social-icons img { /* Dentro do .footer genérico */
+.footer .social-icons img { 
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
 
 
-.sobre { /* Estilos da página Sobre */
+/* .sobre genérico, já estilizado especificamente para .container2 .sobre */
+/* Se houver outra página que use apenas ".sobre" sem ".container2", esta regra se aplicará */
+.sobre { 
     grid-area: sidenav;
     background-color: #1E3A8A;
     color: #F0F4FF;
@@ -506,25 +581,21 @@ div h2 { /* Estilo genérico do usuário */
     width: 100%;
 }
 
-/* .footer2 já foi estilizado dentro de .container2 .footer2 */
-/* .sobre2 já foi estilizado dentro de .container2 .sobre2 */
-/* Os estilos originais para .sobre2 h2, .sobre2 h3, .sobre2 h4 e .sobre2 (genérico) foram mantidos
-   caso sejam usados em uma página "Sobre" diferente da página de contato.
-   As regras mais específicas .container2 .sobre2 h2 etc. terão precedência na página de contato.
-*/
-.sobre2 h2 { /* Estilos da página Sobre - GENÉRICO */
+/* .sobre2 genérico, já estilizado especificamente para .container2 .sobre2 */
+/* Se houver outra página que use apenas ".sobre2" sem ".container2", estas regras se aplicarão */
+.sobre2 h2 { 
     padding: 0px 0 10px 0;
 }
 
-.sobre2 h3 { /* Estilos da página Sobre - GENÉRICO */
+.sobre2 h3 { 
     padding: 20px 0 10px 0;
 }
 
-.sobre2 h4 { /* Estilos da página Sobre - GENÉRICO */
+.sobre2 h4 { 
     padding: 20px 0 10px 0;
 }
 
-.sobre2 { /* Estilos da página Sobre - GENÉRICO */
+.sobre2 { 
     grid-area: sidenav;
     background-color: #1E3A8A;
     color: #F0F4FF;
@@ -533,46 +604,42 @@ div h2 { /* Estilo genérico do usuário */
     height: 750px;
     width: 100%;
 }
-/* FIM DOS ESTILOS GENÉRICOS E PARA OUTRAS PÁGINAS */
+/* FIM DOS ESTILOS GENÉRICOS */
 
 
 /* Rodapé Principal da Página (fora da section) */
 body > footer {
     text-align: center;
     padding: 20px;
-    background-color: #333; /* Fundo similar ao header */
+    background-color: #333; 
     color: #fff;
     margin-top: 30px;
     font-size: 0.9em;
 }
 .copyright {
-    text-align: center; /* Já definido pelo body > footer, mas mantido para clareza */
+    text-align: center; 
 }
 
 
-/* Media Queries para Responsividade - Aplicadas aos estilos da galeria (.container3) e ao header */
-@media (max-width: 992px) { /* Tablets e telas menores */
-    .container3 { /* Específico para galeria */
-        /* flex-direction: column; /* Já é o padrão com a sidenav em full-width e order */
-    }
-    .container3 .sidenav { /* Específico para galeria */
-        /* flex-basis: 100%; width: 100%; /* Já definido */
-        /* margin-bottom: 20px; /* O gap do container3 já cuida disso */
-    }
-    .container3 .item2 { /* Específico para galeria */
-        flex-basis: calc(50% - 10px); /* Tenta 2 colunas, ajustando pelo gap de 20px */
+/* Media Queries para Responsividade */
+@media (max-width: 992px) { 
+    /* Galeria */
+    .container3 .item2 { 
+        flex-basis: calc(50% - 10px); 
     }
 
-    /* Contato */
-    .container2 .sobre2 { 
-        padding: 20px 25px; 
+    /* Contato e Sobre (dentro de .container2) */
+    .container2 .sobre2, 
+    .container2 .sobre { 
+        padding: 25px 30px; 
     }
-    .container2 .sobre2 p {
+    .container2 .sobre2 p,
+    .container2 .sobre p {
         max-width: 100%; 
     }
 }
 
-@media (max-width: 768px) { /* Celulares */
+@media (max-width: 768px) { 
     header {
         flex-direction: column;
         height: auto; 
@@ -607,42 +674,47 @@ body > footer {
         aspect-ratio: 410 / 300; 
     }
 
-    /* Contato */
-    .container2 .sobre2 {
+    /* Contato e Sobre (dentro de .container2) */
+    .container2 .sobre2,
+    .container2 .sobre {
         padding: 20px; 
     }
-    .container2 .sobre2 h2 {
-        font-size: 1.7em; 
-        margin-bottom: 18px; 
+    .container2 .sobre2 h2,
+    .container2 .sobre h2 {
+        font-size: 1.8em; 
+        margin-bottom: 20px; 
     }
-    .container2 .sobre2 h3 {
-        font-size: 1.3em; 
-        margin-top: 22px; 
-        margin-bottom: 8px; 
-    }
-    .container2 .sobre2 p {
-        font-size: 0.9em; 
-        line-height: 1.6; 
-        margin-bottom: 14px; 
-    }
-    .container2 .sobre2 p.info-contato {
-        padding-left: 8px; 
-        border-left-width: 2px; 
-        font-size: 0.9em; 
-        line-height: 1.6; 
-    }
-    .container2 .sobre2 .listasidenav {
+    .container2 .sobre2 h3 { /* Apenas Contato tem H3 no HTML fornecido */
+        font-size: 1.4em; 
         margin-top: 25px; 
-        padding-top: 12px; 
-        gap: 8px; 
+        margin-bottom: 10px; 
     }
-    .container2 .sobre2 .listasidenav li a {
-        padding: 7px 12px; 
-        font-size: 0.85em; 
+    .container2 .sobre2 p,
+    .container2 .sobre p {
+        font-size: 0.95em; 
+        line-height: 1.65; 
+        margin-bottom: 16px; 
+    }
+    .container2 .sobre2 p.info-contato { /* Apenas Contato */
+        padding-left: 10px; 
+        border-left-width: 3px; 
+        font-size: 0.95em; 
+        line-height: 1.65; 
+    }
+    .container2 .sobre2 .listasidenav,
+    .container2 .sobre .listasidenav {
+        margin-top: 30px; 
+        padding-top: 20px; 
+        gap: 10px 15px; 
+    }
+    .container2 .sobre2 .listasidenav li a,
+    .container2 .sobre .listasidenav li a {
+        padding: 8px 15px; 
+        font-size: 0.9em; 
     }
 }
 
-@media (max-width: 480px) { /* Telas muito pequenas */
+@media (max-width: 480px) { 
     h1 { 
         font-size: 1.8em;
     }
@@ -673,35 +745,40 @@ body > footer {
         font-size: 1.1em;
     }
 
-    /* Contato */
-    .container2 .sobre2 {
-        padding: 15px; 
+    /* Contato e Sobre (dentro de .container2) */
+    .container2 .sobre2,
+    .container2 .sobre {
+        padding: 15px 20px; 
     }
-    .container2 .sobre2 h2 {
-        font-size: 1.5em; 
+    .container2 .sobre2 h2,
+    .container2 .sobre h2 {
+        font-size: 1.6em; 
     }
-    .container2 .sobre2 h3 {
-        font-size: 1.15em; 
-        margin-top: 18px; 
+    .container2 .sobre2 h3 { /* Apenas Contato */
+        font-size: 1.25em; 
+        margin-top: 20px; 
     }
-    .container2 .sobre2 p {
-        font-size: 0.85em; 
-        line-height: 1.55; 
+    .container2 .sobre2 p,
+    .container2 .sobre p {
+        font-size: 0.9em; 
+        line-height: 1.6; 
     }
-    .container2 .sobre2 p.info-contato {
-        font-size: 0.85em; 
-        line-height: 1.55; 
+    .container2 .sobre2 p.info-contato { /* Apenas Contato */
+        font-size: 0.9em; 
+        line-height: 1.6; 
     }
-    .container2 .sobre2 .listasidenav {
+    .container2 .sobre2 .listasidenav,
+    .container2 .sobre .listasidenav {
         flex-direction: column;
         align-items: center;
-        gap: 8px; 
+        gap: 10px; 
     }
-    .container2 .sobre2 .listasidenav li a {
-        padding: 7px 10px; 
-        font-size: 0.8em; 
+    .container2 .sobre2 .listasidenav li a,
+    .container2 .sobre .listasidenav li a {
+        padding: 8px 12px; 
+        font-size: 0.85em; 
         width: 100%; 
-        max-width: 200px; 
+        max-width: 220px; 
         text-align: center;
     }
 }
