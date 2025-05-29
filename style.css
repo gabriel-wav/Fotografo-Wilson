@@ -15,28 +15,47 @@ body {
     line-height: 1.6;
     /* Espaçamento entre linhas de texto */
     width: 100%;
-    height: 100%;
+    /* height: 100%; /* Removido para permitir que o body cresça com o conteúdo */
 }
 
 header {
     display: flex;
     /* Usando Flexbox para organizar os itens do cabeçalho */
     justify-content: space-between;
-    /* Espaçamento entre logo e menu */
+    /* Espaçamento entre logo/título e menu */
     align-items: center;
     /* Alinhamento vertical */
     width: 100%;
     height: 70px;
-    padding: 10px;
+    padding: 10px 20px; /* Padding ajustado do original do usuário */
     background-color: #333;
     /* Cor de fundo do cabeçalho */
     box-shadow: 0px 5px 20px black;
     /* Sombra para destacar o cabeçalho */
 }
 
-h1 {
-    text-align: center;
+/* Novo container para agrupar logo e título */
+.logo-e-titulo {
+    display: flex;
+    align-items: center; /* Alinha o logo e o título verticalmente */
+    gap: 15px; /* Espaço entre o logo e o título */
 }
+
+.titulo-site-header {
+    color: #fff; /* Cor do texto do título */
+    font-size: 1.6em; /* Tamanho da fonte do título (ajuste conforme preferir) */
+    margin: 0; /* Remove margens padrão do h2 */
+    font-weight: 600; /* Peso da fonte (opcional) */
+}
+
+
+h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 2em; /* Defaulting to a common large size */
+}
+
 
 .logo {
     width: 45px;
@@ -44,7 +63,7 @@ h1 {
     background-color: #ccc;
     border-radius: 10px;
     /* Bordas arredondadas para o logo */
-
+    display: block; /* Garante que o link da imagem se comporte bem no flex */
 }
 
 .menu {
@@ -62,6 +81,7 @@ h1 {
     padding: 10px 20px;
     border-radius: 20px;
     margin-left: 10px;
+    transition: background-color 0.3s ease;
 }
 
 .menu li a:hover {
@@ -69,65 +89,20 @@ h1 {
     /* Cor de fundo ao passar o mouse */
 }
 
-
+/* ESTILOS PARA OUTROS CONTAINERS (NÃO DA GALERIA) - MANTIDOS DO USUÁRIO */
 .container {
     max-width: 1200px;
-    /* Limita a largura máxima do contêiner */
     margin: 0 auto;
-    /* Centraliza o contêiner */
     display: grid;
-    /* Ativa o grid layout */
     grid-template-columns: 0.7fr 1fr 1fr;
-    /* Define 3 colunas, a primeira menor */
     grid-template-rows: auto auto auto;
-    /* Altura automática para cada linha */
     grid-template-areas:
         "sidenav item1 item2"
         "sidenav item3 item4"
         "footer footer footer";
-    /* Define as áreas nomeadas para cada elemento */
     gap: 20px;
-    /* Espaçamento entre as áreas do grid */
     padding: 20px;
     border: 1px solid #fff;
-    /* Bordas para destacar o contêiner */
-}
-
-
-.sidenav {
-    grid-area: sidenav;
-    /* Define a área do grid que a barra lateral ocupará */
-    background-color: #1E3A8A;
-    /* Fundo azul escuro */
-    color: #F0F4FF;
-    /* Cor do texto em azul claro */
-    border-radius: 20px;
-    /* Bordas arredondadas */
-    padding: 20px;
-    height: 700px;
-    width: 300px;
-
-}
-
-div p {
-    margin-top: 10px;
-}
-
-.listasidenav {
-    text-decoration: none;
-    list-style: none;
-}
-
-li {
-    padding: 5px 0px 10px 0;
-}
-
-li a {
-    color: #fff;
-}
-
-div h2 {
-    color: #689ef3;
 }
 
 .item:nth-child(2) {
@@ -149,248 +124,408 @@ div h2 {
 .item {
     background-color: #ccc;
     border-radius: 20px;
-    /* Arredonda os cantos do item */
     display: flex;
-    /* Organiza o conteúdo do item como um flex container */
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.fotos {
-    padding: 20px 0 0px 0;
-
+.container2 {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 90%;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+        "sidenav sidenav sidenav"
+        "sidenav sidenav sidenav"
+        "footer footer footer";
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #fff;
 }
 
-.footer {
+/* FIM DOS ESTILOS PARA OUTROS CONTAINERS */
+
+
+/* === INÍCIO DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
+
+/* Layout Principal da Galeria (container3) */
+.container3 {
+    display: flex; /* Usar flexbox para alinhar sidenav e o conteúdo principal */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    max-width: 1200px; /* Largura máxima original do usuário */
+    margin: 20px auto; /* Centraliza e adiciona margem vertical */
+    padding: 20px; /* Padding original do usuário */
+    gap: 20px; /* Espaçamento entre sidenav e itens, e entre itens */
+    border: 1px solid #fff; /* A "linha branca" solicitada pelo usuário */
+    justify-content: center; /* Centraliza as linhas de itens da galeria se houver espaço */
+}
+
+/* Barra Lateral (sidenav) DENTRO DE .container3 - AGORA COMO FAIXA HORIZONTAL */
+.container3 .sidenav { /* Seletor mais específico para o sidenav da galeria */
+    flex-basis: 100%; /* Ocupa toda a largura */
+    flex-grow: 0;
+    flex-shrink: 0;
+    order: 1; /* Aparece primeiro */
+    background-color: #1E3A8A; /* Fundo original da sidenav do usuário */
+    color: #F0F4FF; /* Cor do texto original na sidenav do usuário */
+    padding: 20px;
+    border-radius: 20px; /* Bordas arredondadas originais do usuário */
+    height: auto; /* Altura baseada no conteúdo */
+    text-align: center; /* Centraliza o texto dentro da faixa */
+}
+
+.container3 .sidenav h2 { /* Título H2 dentro do sidenav da galeria */
+    color: #689ef3; /* Cor original do título da sidenav do usuário */
+    margin-bottom: 10px; /* Espaçamento abaixo do título */
+    font-size: 1.5em; /* Tamanho de fonte para o título */
+    border-bottom: 1px solid #5a6882;
+    padding-bottom: 8px;
+    display: inline-block; /* Para que a borda inferior não ocupe toda a largura */
+}
+
+.container3 .sidenav p { /* Parágrafo dentro do sidenav da galeria */
+    font-size: 1em; /* Tamanho de fonte padrão */
+    line-height: 1.6;
+    margin-top: 10px; /* Espaçamento original do usuário */
+    margin-bottom: 15px;
+    max-width: 800px; /* Limita a largura do parágrafo para melhor leitura na faixa */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container3 .sidenav .listasidenav { /* Lista dentro do sidenav da galeria */
+    list-style: none; /* Remove marcadores da lista */
+    padding: 0;
+    margin: 0;
+    display: flex; /* Coloca os itens da lista lado a lado */
+    justify-content: center; /* Centraliza os itens da lista */
+    flex-wrap: wrap; /* Permite quebra de linha se não couberem */
+    gap: 10px; /* Espaçamento entre os links da lista */
+}
+
+.container3 .sidenav .listasidenav li { /* Itens da lista no sidenav da galeria */
+    padding: 0; /* Remove padding original para controlar com gap */
+}
+
+.container3 .sidenav .listasidenav li a { /* Links da lista no sidenav da galeria */
+    color: #F0F4FF; /* Cor dos links na sidenav */
+    text-decoration: none;
+    display: block;
+    padding: 8px 15px; /* Padding ajustado para visual de botão */
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.container3 .sidenav .listasidenav li a:hover {
+    background-color: #3b5998; /* Um azul um pouco mais escuro para hover */
+}
+
+/* Estilos para cada item da galeria (.item2) DENTRO DE .container3 */
+.container3 .item2 {
+    background-color: #ccc; /* Cor de fundo original para cada item do usuário */
+    color: #333; /* Cor de texto para descrição dentro do item */
+    padding: 15px;
+    border-radius: 20px; /* Bordas arredondadas originais do usuário */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    order: 2; /* Aparece depois da faixa do sidenav */
+    flex-grow: 0; /* Não cresce além do flex-basis */
+    flex-shrink: 0; /* Não encolhe abaixo do flex-basis */
+    flex-basis: 440px; /* Largura para acomodar imagem de 410px + padding de 15px em cada lado */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* min-width foi removido pois flex-basis e flex-shrink:0 cuidam disso */
+}
+
+.container3 .item2 img.fotos,
+.container3 .item2 img.fotos2 {
+    width: 1100px;
+    height: 500px;
+    object-fit: cover; /* Cobre a área, pode cortar, mas mantém proporção e preenche */
+    border-radius: 10px; /* Bordas arredondadas para a imagem */
+    margin-bottom: 10px; /* Espaço entre a imagem e a descrição */
+    display: block;
+    margin-left: auto; /* Centraliza a imagem dentro do .item2 se este for mais largo */
+    margin-right: auto; /* Centraliza a imagem */
+}
+
+.container3 .item2 p { /* Descrição abaixo da imagem na galeria */
+    font-size: 0.9em;
+    margin-top: 5px; /* Pequena margem acima da descrição */
+}
+
+/* Rodapé DENTRO da section .container3 */
+.container3 .footer { /* Seletor mais específico para o footer da galeria */
+    flex-basis: 100%; /* Ocupa toda a largura da linha, forçando-o para baixo */
+    order: 3; /* Aparece por último, depois da faixa sidenav e dos itens da galeria */
+    background-color: #6a6969; /* Cor de fundo original do usuário */
+    color: #fff;
+    padding: 30px; /* Padding original do usuário */
+    border-radius: 20px; /* Bordas arredondadas originais do usuário */
+    text-align: center;
+    margin-top: 20px; /* Espaçamento acima deste rodapé */
+}
+
+.container3 .footer h3 {
+    margin-bottom: 15px; /* Espaçamento original do usuário */
+    font-size: 1.3em;
+}
+
+.container3 .footer p { /* Parágrafo dentro do rodapé da seção da galeria */
+    margin-bottom: 15px; /* Espaçamento original do usuário */
+    font-size: 1em;
+    margin-top: 0;
+}
+.container3 .footer p a {
+    color: #ddeeff; /* Cor clara para o link de email */
+    text-decoration: none;
+}
+.container3 .footer p a:hover {
+    text-decoration: underline;
+}
+
+.container3 .footer .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espaçamento original do usuário */
+}
+
+.container3 .footer .social-icons img {
+    width: 30px; /* Tamanho original do usuário */
+    height: 30px;
+    border-radius: 50%;
+    transition: opacity 0.2s ease;
+}
+
+.container3 .footer .social-icons a:hover img {
+    opacity: 0.7;
+}
+
+/* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
+
+
+/* ESTILOS GENÉRICOS E PARA OUTRAS PÁGINAS (SOBRE) - MANTIDOS DO USUÁRIO */
+/* Sidenav genérico (pode ser usado por .container ou .container2) */
+.sidenav { /* Este é o .sidenav genérico do usuário, usado por .container e .container2 */
+    grid-area: sidenav;
+    background-color: #1E3A8A;
+    color: #F0F4FF;
+    border-radius: 20px;
+    padding: 20px;
+    height: 700px; /* Altura fixa do usuário */
+    width: 300px; /* Largura fixa do usuário */
+}
+
+div p { /* Estilo genérico do usuário */
+    margin-top: 10px;
+}
+
+.listasidenav { /* Estilo genérico do usuário */
+    text-decoration: none;
+    list-style: none;
+}
+
+li { /* Estilo genérico do usuário */
+    padding: 5px 0px 10px 0;
+}
+
+li a { /* Estilo genérico do usuário */
+    color: #fff;
+}
+
+div h2 { /* Estilo genérico do usuário */
+    color: #689ef3;
+}
+
+.fotos { /* Estilo genérico para .fotos do usuário */
+    padding: 20px 0 0px 0;
+}
+
+/* Footer genérico (pode ser usado por .container ou .container2) */
+.footer { /* Este é o .footer genérico do usuário */
     grid-area: footer;
     background-color: #6a6969;
     border-radius: 20px;
     text-align: center;
     padding: 30px;
-    /* Aumenta o tamanho do rodapé */
 }
 
-.footer h3 {
+.footer h3 { /* Dentro do .footer genérico */
     margin-bottom: 15px;
 }
 
-.footer p {
+.footer p { /* Dentro do .footer genérico */
     margin-bottom: 15px;
 }
 
-.footer .social-icons {
+.footer .social-icons { /* Dentro do .footer genérico */
     display: flex;
-    /* Organiza os ícones de redes sociais em linha */
     justify-content: center;
-    /* Centraliza os ícones */
     gap: 15px;
-    /* Espaçamento entre os ícones */
 }
 
-.footer .social-icons img {
+.footer .social-icons img { /* Dentro do .footer genérico */
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    /* Ícones arredondados */
 }
 
-.copyright {
-    text-align: center;
-}
 
-.sobre {
+.sobre { /* Estilos da página Sobre */
     grid-area: sidenav;
-    /* Define a área do grid que a barra lateral ocupará */
     background-color: #1E3A8A;
-    /* Fundo azul escuro */
     color: #F0F4FF;
-    /* Cor do texto em azul claro */
     border-radius: 20px;
-    /* Bordas arredondadas */
     padding: 20px;
     height: 700px;
     width: 100%;
 }
 
-.container2 {
-
-    max-width: 1200px;
-    /* Limita a largura máxima do contêiner */
-    margin: 0 auto;
-    /* Centraliza o contêiner */
-    display: grid;
-    /* Ativa o grid layout */
-    grid-template-columns: 90%;
-    /* Define 3 colunas, a primeira menor */
-    grid-template-rows: auto auto auto;
-    /* Altura automática para cada linha */
-    grid-template-areas:
-        "sidenav sidenav sidenav"
-        "sidenav sidenav sidenav"
-        "footer footer footer";
-    /* Define as áreas nomeadas para cada elemento */
-    gap: 20px;
-    /* Espaçamento entre as áreas do grid */
-    padding: 20px;
-    border: 1px solid #fff;
-    /* Bordas para destacar o contêiner */
-}
-
-.fotos {
-    padding: 20px 0 0px 0;
-
-}
-
-.footer2 {
+.footer2 { /* Estilos da página Sobre */
     grid-area: footer;
     background-color: #6a6969;
     border-radius: 20px;
     text-align: center;
     padding: 30px;
-    /* Aumenta o tamanho do rodapé */
 }
 
-.footer2 h3 {
+.footer2 h3 { /* Estilos da página Sobre */
     margin-bottom: 15px;
 }
 
-.footer2 p {
+.footer2 p { /* Estilos da página Sobre */
     margin-bottom: 15px;
 }
 
-.footer2 .social-icons {
+.footer2 .social-icons { /* Estilos da página Sobre */
     display: flex;
-    /* Organiza os ícones de redes sociais em linha */
     justify-content: center;
-    /* Centraliza os ícones */
     gap: 15px;
-    /* Espaçamento entre os ícones */
 }
 
-.footer2 .social-icons img {
+.footer2 .social-icons img { /* Estilos da página Sobre */
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    /* Ícones arredondados */
 }
 
-.sobre2 h2 {
+.sobre2 h2 { /* Estilos da página Sobre */
     padding: 0px 0 10px 0;
 }
 
-.sobre2 h3 {
+.sobre2 h3 { /* Estilos da página Sobre */
     padding: 20px 0 10px 0;
 }
 
-.sobre2 h4 {
+.sobre2 h4 { /* Estilos da página Sobre */
     padding: 20px 0 10px 0;
 }
 
-.sobre2 {
+.sobre2 { /* Estilos da página Sobre */
     grid-area: sidenav;
-    /* Define a área do grid que a barra lateral ocupará */
     background-color: #1E3A8A;
-    /* Fundo azul escuro */
     color: #F0F4FF;
-    /* Cor do texto em azul claro */
     border-radius: 20px;
-    /* Bordas arredondadas */
     padding: 20px;
     height: 750px;
     width: 100%;
 }
+/* FIM DOS ESTILOS GENÉRICOS E PARA OUTRAS PÁGINAS */
 
-.container3 {
 
-    max-width: 1200px;
-    /* Limita a largura máxima do contêiner */
-    margin: 0 auto;
-    /* Centraliza o contêiner */
-    display: grid;
-    /* Ativa o grid layout */
-    grid-template-columns: 0.7fr 1fr 1fr;
-    /* Define 3 colunas, a primeira menor */
-    grid-template-rows: auto auto auto;
-    /* Altura automática para cada linha */
-    grid-template-areas:
-        "sidenav item1 item2"
-        "sidenav item3 item4"
-        "footer footer footer";
-    /* Define as áreas nomeadas para cada elemento */
-    gap: 20px;
-    /* Espaçamento entre as áreas do grid */
+/* Rodapé Principal da Página (fora da section) */
+body > footer {
+    text-align: center;
     padding: 20px;
-    border: 1px solid #fff;
-    /* Bordas para destacar o contêiner */
-    margin: 0 auto;
-    display: flex;
+    background-color: #333; /* Fundo similar ao header */
+    color: #fff;
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+.copyright {
+    text-align: center; /* Já definido pelo body > footer, mas mantido para clareza */
 }
 
-.item2:nth-child(2) {
-    grid-area: item1;
+
+/* Media Queries para Responsividade - Aplicadas aos estilos da galeria (.container3) e ao header */
+@media (max-width: 992px) { /* Tablets e telas menores */
+    .container3 { /* Específico para galeria */
+        /* flex-direction: column; /* Já é o padrão com a sidenav em full-width e order */
+    }
+    .container3 .sidenav { /* Específico para galeria */
+        /* flex-basis: 100%; width: 100%; /* Já definido */
+        /* margin-bottom: 20px; /* O gap do container3 já cuida disso */
+    }
+    .container3 .item2 { /* Específico para galeria */
+        flex-basis: calc(50% - 10px); /* Tenta 2 colunas, ajustando pelo gap de 20px */
+    }
 }
 
-.item2:nth-child(3) {
-    grid-area: item2;
+@media (max-width: 768px) { /* Celulares */
+    header {
+        flex-direction: column;
+        height: auto; /* Altura automática para o header */
+        padding-bottom: 15px;
+        gap: 10px; /* Espaçamento entre logo-titulo e menu quando empilhados */
+    }
+    .logo-e-titulo {
+        justify-content: center; /* Centraliza logo e titulo quando o header empilha */
+        width: 100%;
+    }
+    .menu {
+        margin-top: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .menu li {
+        margin: 5px; /* Adiciona margem para melhor visualização */
+    }
+    .menu li a {
+        margin-left: 0; /* Remove margem esquerda quando empilhado */
+    }
+
+    /* Ajustes específicos da galeria */
+    .container3 .item2 { /* Específico para galeria */
+        flex-basis: 100%; /* 1 coluna em telas pequenas */
+    }
+    .container3 .item2 img.fotos,
+    .container3 .item2 img.fotos2 {
+        width: 100%; /* Faz a imagem ser responsiva dentro do item */
+        max-width: 410px; /* Mantém o limite superior */
+        height: auto; /* Mantém a proporção da imagem */
+        aspect-ratio: 410 / 300; /* Garante a proporção 410x300 */
+    }
 }
 
-.item2:nth-child(4) {
-    grid-area: item3;
+@media (max-width: 480px) { /* Telas muito pequenas */
+    h1 { /* Ajuste geral de H1 */
+        font-size: 1.8em;
+    }
+    .titulo-site-header { /* Título do site no cabeçalho */
+        font-size: 1.2em; /* Reduz um pouco mais em telas bem pequenas */
+    }
+    .container3 .sidenav { /* Específico para galeria */
+        padding: 15px;
+    }
+    .container3 .sidenav h2 { /* Específico para galeria */
+        font-size: 1.3em;
+    }
+     .container3 .sidenav .listasidenav {
+        flex-direction: column; /* Links da sidenav empilhados */
+        align-items: center;
+    }
+    .container3 .item2 { /* Específico para galeria */
+        padding: 10px;
+        flex-basis: 100%; /* Garante uma coluna */
+    }
+
+    .container3 .footer { /* Específico para galeria */
+        padding: 20px;
+    }
+    .container3 .footer h3 { /* Específico para galeria */
+        font-size: 1.1em;
+    }
 }
 
-.item2:nth-child(5) {
-    grid-area: item4;
-}
-
-.item2 {
-    background-color: #ccc;
-    border-radius: 20px;
-    /* Arredonda os cantos do item */
-    display: flex;
-    /* Organiza o conteúdo do item como um flex container */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.container3 {
-    display: flex; /* Usar flexbox para alinhar a sidenav e a galeria */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.sidenav2 {
-    flex: 0 0 300px;
-    /* Define a largura da sidenav */
-    margin-right: 20px;
-    /* Espaço entre a sidenav e a galeria */
-    flex-wrap: wrap;
-}
-
-.galeria2 {
-    flex: 1; /* A galeria ocupa o restante do espaço */
-    display: grid; /* Usar grid layout para a galeria */
-    grid-template-columns: repeat(2, 1fr); /* Duas colunas */
-    gap: 20px; /* Espaçamento entre as fotos */
-}
-
-.item2 {
-    background-color: #ccc;
-    /* Cor de fundo para o item */
-    border-radius: 20px;
-    /* Arredonda os cantos do item */
-    display: flex;
-    /* Organiza o conteúdo do item como um flex container */
-    flex-direction: column;
-    /* Alinha o conteúdo na vertical */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    justify-content: flex-start;
-    /* Centraliza verticalmente */
-    padding: 10px;
-    /* Espaçamento interno */
-    flex-wrap: wrap;
-    align-content: center;
-}
