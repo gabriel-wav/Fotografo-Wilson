@@ -42,12 +42,16 @@ header {
 }
 
 .titulo-site-header {
+    text-decoration: none;
     color: #fff; /* Cor do texto do título */
     font-size: 1.6em; /* Tamanho da fonte do título (ajuste conforme preferir) */
     margin: 0; /* Remove margens padrão do h2 */
     font-weight: 600; /* Peso da fonte (opcional) */
 }
 
+#a-titulo-site-header {
+    text-decoration: none;
+}
 
 h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     text-align: center;
