@@ -42,16 +42,17 @@ header {
 }
 
 .titulo-site-header {
-    text-decoration: none;
+    text-decoration: none; /* Removido do #a-titulo-site-header e aplicado diretamente */
     color: #fff; /* Cor do texto do título */
     font-size: 1.6em; /* Tamanho da fonte do título (ajuste conforme preferir) */
     margin: 0; /* Remove margens padrão do h2 */
     font-weight: 600; /* Peso da fonte (opcional) */
 }
 
-#a-titulo-site-header {
-    text-decoration: none;
+#a-titulo-site-header { /* Seletor de ID para o link do título */
+    text-decoration: none; /* Garante que o link não tenha sublinhado */
 }
+
 
 h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     text-align: center;
@@ -134,156 +135,136 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     justify-content: center;
 }
 
-.container2 {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 90%;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-        "sidenav sidenav sidenav"
-        "sidenav sidenav sidenav"
-        "footer footer footer";
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid #fff;
-}
-
 /* FIM DOS ESTILOS PARA OUTROS CONTAINERS */
 
 
 /* === INÍCIO DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
-
-/* Layout Principal da Galeria (container3) */
+/* ESTA SEÇÃO (GALERIA) NÃO SERÁ ALTERADA CONFORME SOLICITADO */
 .container3 {
-    display: flex; /* Usar flexbox para alinhar sidenav e o conteúdo principal */
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
-    max-width: 1200px; /* Largura máxima original do usuário */
-    margin: 20px auto; /* Centraliza e adiciona margem vertical */
-    padding: 20px; /* Padding original do usuário */
-    gap: 20px; /* Espaçamento entre sidenav e itens, e entre itens */
-    border: 1px solid #fff; /* A "linha branca" solicitada pelo usuário */
-    justify-content: center; /* Centraliza as linhas de itens da galeria se houver espaço */
+    display: flex; 
+    flex-wrap: wrap; 
+    max-width: 1200px; 
+    margin: 20px auto; 
+    padding: 20px; 
+    gap: 20px; 
+    border: 1px solid #fff; 
+    justify-content: center; 
 }
 
-/* Barra Lateral (sidenav) DENTRO DE .container3 - AGORA COMO FAIXA HORIZONTAL */
-.container3 .sidenav { /* Seletor mais específico para o sidenav da galeria */
-    flex-basis: 100%; /* Ocupa toda a largura */
+.container3 .sidenav { 
+    flex-basis: 100%; 
     flex-grow: 0;
     flex-shrink: 0;
-    order: 1; /* Aparece primeiro */
-    background-color: #1E3A8A; /* Fundo original da sidenav do usuário */
-    color: #F0F4FF; /* Cor do texto original na sidenav do usuário */
+    order: 1; 
+    background-color: #1E3A8A; 
+    color: #F0F4FF; 
     padding: 20px;
-    border-radius: 20px; /* Bordas arredondadas originais do usuário */
-    height: auto; /* Altura baseada no conteúdo */
-    text-align: center; /* Centraliza o texto dentro da faixa */
+    border-radius: 20px; 
+    height: auto; 
+    text-align: center; 
 }
 
-.container3 .sidenav h2 { /* Título H2 dentro do sidenav da galeria */
-    color: #689ef3; /* Cor original do título da sidenav do usuário */
-    margin-bottom: 10px; /* Espaçamento abaixo do título */
-    font-size: 1.5em; /* Tamanho de fonte para o título */
+.container3 .sidenav h2 { 
+    color: #689ef3; 
+    margin-bottom: 10px; 
+    font-size: 1.5em; 
     border-bottom: 1px solid #5a6882;
     padding-bottom: 8px;
-    display: inline-block; /* Para que a borda inferior não ocupe toda a largura */
+    display: inline-block; 
 }
 
-.container3 .sidenav p { /* Parágrafo dentro do sidenav da galeria */
-    font-size: 1em; /* Tamanho de fonte padrão */
+.container3 .sidenav p { 
+    font-size: 1em; 
     line-height: 1.6;
-    margin-top: 10px; /* Espaçamento original do usuário */
+    margin-top: 10px; 
     margin-bottom: 15px;
-    max-width: 800px; /* Limita a largura do parágrafo para melhor leitura na faixa */
+    max-width: 800px; 
     margin-left: auto;
     margin-right: auto;
 }
 
-.container3 .sidenav .listasidenav { /* Lista dentro do sidenav da galeria */
-    list-style: none; /* Remove marcadores da lista */
+.container3 .sidenav .listasidenav { 
+    list-style: none; 
     padding: 0;
     margin: 0;
-    display: flex; /* Coloca os itens da lista lado a lado */
-    justify-content: center; /* Centraliza os itens da lista */
-    flex-wrap: wrap; /* Permite quebra de linha se não couberem */
-    gap: 10px; /* Espaçamento entre os links da lista */
+    display: flex; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+    gap: 10px; 
 }
 
-.container3 .sidenav .listasidenav li { /* Itens da lista no sidenav da galeria */
-    padding: 0; /* Remove padding original para controlar com gap */
+.container3 .sidenav .listasidenav li { 
+    padding: 0; 
 }
 
-.container3 .sidenav .listasidenav li a { /* Links da lista no sidenav da galeria */
-    color: #F0F4FF; /* Cor dos links na sidenav */
+.container3 .sidenav .listasidenav li a { 
+    color: #F0F4FF; 
     text-decoration: none;
     display: block;
-    padding: 8px 15px; /* Padding ajustado para visual de botão */
+    padding: 8px 15px; 
     border-radius: 6px;
     transition: background-color 0.2s ease;
 }
 
 .container3 .sidenav .listasidenav li a:hover {
-    background-color: #3b5998; /* Um azul um pouco mais escuro para hover */
+    background-color: #3b5998; 
 }
 
-/* Estilos para cada item da galeria (.item2) DENTRO DE .container3 */
 .container3 .item2 {
-    background-color: #ccc; /* Cor de fundo original para cada item do usuário */
-    color: #333; /* Cor de texto para descrição dentro do item */
+    background-color: #ccc; 
+    color: #333; 
     padding: 15px;
-    border-radius: 20px; /* Bordas arredondadas originais do usuário */
+    border-radius: 20px; 
     text-align: center;
     display: flex;
     flex-direction: column;
-    order: 2; /* Aparece depois da faixa do sidenav */
-    flex-grow: 0; /* Não cresce além do flex-basis */
-    flex-shrink: 0; /* Não encolhe abaixo do flex-basis */
-    flex-basis: 440px; /* Largura para acomodar imagem de 410px + padding de 15px em cada lado */
+    order: 2; 
+    flex-grow: 0; 
+    flex-shrink: 0; 
+    flex-basis: 440px; 
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    /* min-width foi removido pois flex-basis e flex-shrink:0 cuidam disso */
 }
 
 .container3 .item2 img.fotos,
 .container3 .item2 img.fotos2 {
-    width: 1100px;
-    height: 500px;
-    object-fit: cover; /* Cobre a área, pode cortar, mas mantém proporção e preenche */
-    border-radius: 10px; /* Bordas arredondadas para a imagem */
-    margin-bottom: 10px; /* Espaço entre a imagem e a descrição */
+    width: 1100px; /* Mantido do CSS fornecido pelo usuário */
+    height: 500px; /* Mantido do CSS fornecido pelo usuário */
+    object-fit: cover; 
+    border-radius: 10px; 
+    margin-bottom: 10px; 
     display: block;
-    margin-left: auto; /* Centraliza a imagem dentro do .item2 se este for mais largo */
-    margin-right: auto; /* Centraliza a imagem */
+    margin-left: auto; 
+    margin-right: auto; 
 }
 
-.container3 .item2 p { /* Descrição abaixo da imagem na galeria */
+.container3 .item2 p { 
     font-size: 0.9em;
-    margin-top: 5px; /* Pequena margem acima da descrição */
+    margin-top: 5px; 
 }
 
-/* Rodapé DENTRO da section .container3 */
-.container3 .footer { /* Seletor mais específico para o footer da galeria */
-    flex-basis: 100%; /* Ocupa toda a largura da linha, forçando-o para baixo */
-    order: 3; /* Aparece por último, depois da faixa sidenav e dos itens da galeria */
-    background-color: #6a6969; /* Cor de fundo original do usuário */
+.container3 .footer { 
+    flex-basis: 100%; 
+    order: 3; 
+    background-color: #6a6969; 
     color: #fff;
-    padding: 30px; /* Padding original do usuário */
-    border-radius: 20px; /* Bordas arredondadas originais do usuário */
+    padding: 30px; 
+    border-radius: 20px; 
     text-align: center;
-    margin-top: 20px; /* Espaçamento acima deste rodapé */
+    margin-top: 20px; 
 }
 
 .container3 .footer h3 {
-    margin-bottom: 15px; /* Espaçamento original do usuário */
+    margin-bottom: 15px; 
     font-size: 1.3em;
 }
 
-.container3 .footer p { /* Parágrafo dentro do rodapé da seção da galeria */
-    margin-bottom: 15px; /* Espaçamento original do usuário */
+.container3 .footer p { 
+    margin-bottom: 15px; 
     font-size: 1em;
     margin-top: 0;
 }
 .container3 .footer p a {
-    color: #ddeeff; /* Cor clara para o link de email */
+    color: #ddeeff; 
     text-decoration: none;
 }
 .container3 .footer p a:hover {
@@ -293,11 +274,11 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
 .container3 .footer .social-icons {
     display: flex;
     justify-content: center;
-    gap: 15px; /* Espaçamento original do usuário */
+    gap: 15px; 
 }
 
 .container3 .footer .social-icons img {
-    width: 30px; /* Tamanho original do usuário */
+    width: 30px; 
     height: 30px;
     border-radius: 50%;
     transition: opacity 0.2s ease;
@@ -310,9 +291,141 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
 /* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
 
 
+/* === INÍCIO DOS ESTILOS ESPECÍFICOS DA PÁGINA CONTATO (.container2 e .sobre2) === */
+.container2 { /* Container da página de contato */
+    max-width: 1200px;
+    margin: 20px auto; 
+    display: grid;
+    grid-template-columns: 1fr; 
+    grid-template-areas: 
+        "contato-principal"
+        "contato-footer";
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #fff; 
+}
+
+.container2 .sobre2 { /* Seção de conteúdo principal da página de contato */
+    grid-area: contato-principal; 
+    background-color: #1E3A8A; 
+    color: #F0F4FF; 
+    border-radius: 20px; 
+    padding: 30px 35px; /* Padding interno levemente ajustado para mais respiro */
+    height: auto; 
+    width: 100%; 
+}
+
+.container2 .sobre2 h2 { /* Título "Contatos" na página de contato */
+    padding: 0; 
+    margin: 0 0 25px 0; /* Margem inferior aumentada para mais separação */
+    font-size: 2em; /* Mantido o tamanho original do usuário para este H2 */
+    text-align: center; 
+    color: #a9c5ff; 
+    border-bottom: 1px solid #5a6882; 
+    padding-bottom: 12px; /* Espaço abaixo da linha separadora */
+}
+
+.container2 .sobre2 h3 { /* Subtítulos na página de contato */
+    padding: 0; 
+    margin: 30px 0 12px 0; /* Margem superior aumentada, inferior ajustada */
+    font-size: 1.5em; /* Tamanho da fonte para subtítulos */
+    color: #a9c5ff; 
+    border-bottom: 1px dashed #5a6882; 
+    padding-bottom: 6px; /* Espaço abaixo da linha tracejada */
+    text-align: left; 
+}
+
+.container2 .sobre2 p {
+    font-size: 1em; /* Tamanho de fonte padrão para parágrafos */
+    line-height: 1.7; /* Altura da linha aumentada para melhor legibilidade */
+    margin-top: 0; 
+    margin-bottom: 18px; /* Espaçamento consistente abaixo dos parágrafos */
+    max-width: 100%; /* Limita a largura para melhor leitura (mantido) */
+}
+
+/* Estilo para os parágrafos que contêm informações de contato específicas */
+.container2 .sobre2 p.info-contato { /* Adicione esta classe aos <p> com infos de contato no HTML */
+    margin-bottom: 12px; /* Margem inferior para itens de lista de contato */
+    padding-left: 12px; /* Indentação para itens de contato */
+    border-left: 3px solid #689ef3; /* Destaque visual à esquerda */
+    font-size: 1em; 
+    line-height: 1.7; 
+}
+
+
+.container2 .sobre2 .listasidenav { /* Lista de categorias no final da página de contato */
+    margin-top: 40px; /* Mais espaço antes da lista */
+    padding-top: 25px; /* Espaço acima da lista, dentro da borda */
+    border-top: 1px solid #5a6882; /* Linha separadora acima da lista */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 12px 18px; /* Espaçamento entre os links */
+    list-style: none; 
+    padding-left: 0; 
+}
+
+.container2 .sobre2 .listasidenav li {
+    padding: 0; 
+}
+
+.container2 .sobre2 .listasidenav li a {
+    background-color: #3b5998; 
+    color: #fff; 
+    padding: 8px 18px; /* Padding interno dos links */
+    border-radius: 5px; 
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    font-size: 0.9em; 
+}
+
+.container2 .sobre2 .listasidenav li a:hover {
+    background-color: #007bff; 
+    transform: translateY(-2px); 
+}
+
+.container2 .footer2 { /* Rodapé da página de contato */
+    grid-area: contato-footer; 
+    background-color: #6a6969; 
+    border-radius: 20px; 
+    text-align: center;
+    padding: 30px;
+}
+
+.container2 .footer2 h3 {
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.container2 .footer2 p {
+    margin-bottom: 15px;
+    color: #f0f0f0;
+    max-width: none; 
+    font-size: 1em; 
+    line-height: 1.6; 
+}
+.container2 .footer2 p a {
+    color: #ddeeff;
+}
+
+.container2 .footer2 .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.container2 .footer2 .social-icons img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+/* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA CONTATO (.container2 e .sobre2) === */
+
+
 /* ESTILOS GENÉRICOS E PARA OUTRAS PÁGINAS (SOBRE) - MANTIDOS DO USUÁRIO */
-/* Sidenav genérico (pode ser usado por .container ou .container2) */
-.sidenav { /* Este é o .sidenav genérico do usuário, usado por .container e .container2 */
+/* Sidenav genérico (pode ser usado por .container ou .container2, mas .container2 .sobre2 tem precedência para contato) */
+.sidenav {
     grid-area: sidenav;
     background-color: #1E3A8A;
     color: #F0F4FF;
@@ -322,7 +435,7 @@ h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
     width: 300px; /* Largura fixa do usuário */
 }
 
-div p { /* Estilo genérico do usuário */
+div p { /* Estilo genérico do usuário, pode ser sobrescrito por seletores mais específicos */
     margin-top: 10px;
 }
 
@@ -347,8 +460,8 @@ div h2 { /* Estilo genérico do usuário */
     padding: 20px 0 0px 0;
 }
 
-/* Footer genérico (pode ser usado por .container ou .container2) */
-.footer { /* Este é o .footer genérico do usuário */
+/* Footer genérico (pode ser usado por .container ou .container2, mas .container2 .footer2 tem precedência para contato) */
+.footer {
     grid-area: footer;
     background-color: #6a6969;
     border-radius: 20px;
@@ -387,47 +500,25 @@ div h2 { /* Estilo genérico do usuário */
     width: 100%;
 }
 
-.footer2 { /* Estilos da página Sobre */
-    grid-area: footer;
-    background-color: #6a6969;
-    border-radius: 20px;
-    text-align: center;
-    padding: 30px;
-}
-
-.footer2 h3 { /* Estilos da página Sobre */
-    margin-bottom: 15px;
-}
-
-.footer2 p { /* Estilos da página Sobre */
-    margin-bottom: 15px;
-}
-
-.footer2 .social-icons { /* Estilos da página Sobre */
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.footer2 .social-icons img { /* Estilos da página Sobre */
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.sobre2 h2 { /* Estilos da página Sobre */
+/* .footer2 já foi estilizado dentro de .container2 .footer2 */
+/* .sobre2 já foi estilizado dentro de .container2 .sobre2 */
+/* Os estilos originais para .sobre2 h2, .sobre2 h3, .sobre2 h4 e .sobre2 (genérico) foram mantidos
+   caso sejam usados em uma página "Sobre" diferente da página de contato.
+   As regras mais específicas .container2 .sobre2 h2 etc. terão precedência na página de contato.
+*/
+.sobre2 h2 { /* Estilos da página Sobre - GENÉRICO */
     padding: 0px 0 10px 0;
 }
 
-.sobre2 h3 { /* Estilos da página Sobre */
+.sobre2 h3 { /* Estilos da página Sobre - GENÉRICO */
     padding: 20px 0 10px 0;
 }
 
-.sobre2 h4 { /* Estilos da página Sobre */
+.sobre2 h4 { /* Estilos da página Sobre - GENÉRICO */
     padding: 20px 0 10px 0;
 }
 
-.sobre2 { /* Estilos da página Sobre */
+.sobre2 { /* Estilos da página Sobre - GENÉRICO */
     grid-area: sidenav;
     background-color: #1E3A8A;
     color: #F0F4FF;
@@ -465,17 +556,25 @@ body > footer {
     .container3 .item2 { /* Específico para galeria */
         flex-basis: calc(50% - 10px); /* Tenta 2 colunas, ajustando pelo gap de 20px */
     }
+
+    /* Contato */
+    .container2 .sobre2 { 
+        padding: 20px 25px; 
+    }
+    .container2 .sobre2 p {
+        max-width: 100%; 
+    }
 }
 
 @media (max-width: 768px) { /* Celulares */
     header {
         flex-direction: column;
-        height: auto; /* Altura automática para o header */
+        height: auto; 
         padding-bottom: 15px;
-        gap: 10px; /* Espaçamento entre logo-titulo e menu quando empilhados */
+        gap: 10px; 
     }
     .logo-e-titulo {
-        justify-content: center; /* Centraliza logo e titulo quando o header empilha */
+        justify-content: center; 
         width: 100%;
     }
     .menu {
@@ -484,52 +583,120 @@ body > footer {
         justify-content: center;
     }
     .menu li {
-        margin: 5px; /* Adiciona margem para melhor visualização */
+        margin: 5px; 
     }
     .menu li a {
-        margin-left: 0; /* Remove margem esquerda quando empilhado */
+        margin-left: 0; 
     }
 
-    /* Ajustes específicos da galeria */
-    .container3 .item2 { /* Específico para galeria */
-        flex-basis: 100%; /* 1 coluna em telas pequenas */
+    /* Galeria */
+    .container3 .item2 { 
+        flex-basis: 100%; 
     }
     .container3 .item2 img.fotos,
     .container3 .item2 img.fotos2 {
-        width: 100%; /* Faz a imagem ser responsiva dentro do item */
-        max-width: 410px; /* Mantém o limite superior */
-        height: auto; /* Mantém a proporção da imagem */
-        aspect-ratio: 410 / 300; /* Garante a proporção 410x300 */
+        width: 100%; 
+        max-width: 410px; 
+        height: auto; 
+        aspect-ratio: 410 / 300; 
+    }
+
+    /* Contato */
+    .container2 .sobre2 {
+        padding: 20px; 
+    }
+    .container2 .sobre2 h2 {
+        font-size: 1.7em; 
+        margin-bottom: 18px; 
+    }
+    .container2 .sobre2 h3 {
+        font-size: 1.3em; 
+        margin-top: 22px; 
+        margin-bottom: 8px; 
+    }
+    .container2 .sobre2 p {
+        font-size: 0.9em; 
+        line-height: 1.6; 
+        margin-bottom: 14px; 
+    }
+    .container2 .sobre2 p.info-contato {
+        padding-left: 8px; 
+        border-left-width: 2px; 
+        font-size: 0.9em; 
+        line-height: 1.6; 
+    }
+    .container2 .sobre2 .listasidenav {
+        margin-top: 25px; 
+        padding-top: 12px; 
+        gap: 8px; 
+    }
+    .container2 .sobre2 .listasidenav li a {
+        padding: 7px 12px; 
+        font-size: 0.85em; 
     }
 }
 
 @media (max-width: 480px) { /* Telas muito pequenas */
-    h1 { /* Ajuste geral de H1 */
+    h1 { 
         font-size: 1.8em;
     }
-    .titulo-site-header { /* Título do site no cabeçalho */
-        font-size: 1.2em; /* Reduz um pouco mais em telas bem pequenas */
+    .titulo-site-header { 
+        font-size: 1.2em; 
     }
-    .container3 .sidenav { /* Específico para galeria */
+
+    /* Galeria */
+    .container3 .sidenav { 
         padding: 15px;
     }
-    .container3 .sidenav h2 { /* Específico para galeria */
+    .container3 .sidenav h2 { 
         font-size: 1.3em;
     }
      .container3 .sidenav .listasidenav {
-        flex-direction: column; /* Links da sidenav empilhados */
+        flex-direction: column; 
         align-items: center;
     }
-    .container3 .item2 { /* Específico para galeria */
+    .container3 .item2 { 
         padding: 10px;
-        flex-basis: 100%; /* Garante uma coluna */
+        flex-basis: 100%; 
     }
 
-    .container3 .footer { /* Específico para galeria */
+    .container3 .footer { 
         padding: 20px;
     }
-    .container3 .footer h3 { /* Específico para galeria */
+    .container3 .footer h3 { 
         font-size: 1.1em;
+    }
+
+    /* Contato */
+    .container2 .sobre2 {
+        padding: 15px; 
+    }
+    .container2 .sobre2 h2 {
+        font-size: 1.5em; 
+    }
+    .container2 .sobre2 h3 {
+        font-size: 1.15em; 
+        margin-top: 18px; 
+    }
+    .container2 .sobre2 p {
+        font-size: 0.85em; 
+        line-height: 1.55; 
+    }
+    .container2 .sobre2 p.info-contato {
+        font-size: 0.85em; 
+        line-height: 1.55; 
+    }
+    .container2 .sobre2 .listasidenav {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px; 
+    }
+    .container2 .sobre2 .listasidenav li a {
+        padding: 7px 10px; 
+        font-size: 0.8em; 
+        width: 100%; 
+        max-width: 200px; 
+        text-align: center;
     }
 }
 
