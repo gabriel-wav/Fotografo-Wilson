@@ -2,7 +2,7 @@
 
 Este repositório contém o código de um site estático de portfólio para um fotógrafo, desenvolvido para demonstrar habilidades em **HTML5 semântico** e, principalmente, em **layouts avançados com CSS Grid**.
 
-**[➡️ Acesse a demonstração ao vivo aqui](https://gabriel-wav.github.io/Portfolio-Fotografia/)**
+**[➡️ Acesse a demonstração ao vivo aqui](https://gabriel-wav.github.io/Fotografo-Wilson/)**
 
 ---
 
