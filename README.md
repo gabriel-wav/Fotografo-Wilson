@@ -1,52 +1,52 @@
-# Portfólio de Fotografia com CSS Grid
+# Photography Portfolio with CSS Grid
 
-Este repositório contém o código de um site estático de portfólio para um fotógrafo, desenvolvido para demonstrar habilidades em **HTML5 semântico** e, principalmente, em **layouts avançados com CSS Grid**.
+This repository contains the code for a static photography portfolio website, developed to demonstrate skills in **semantic HTML5** and, most importantly, **advanced layouts using CSS Grid**.
 
-**[➡️ Acesse a demonstração ao vivo aqui](https://gabriel-wav.github.io/Fotografo-Wilson/)**
-
----
-
-## ✨ Funcionalidades Principais
-
-* **Layout com CSS Grid**: A estrutura principal das páginas, especialmente as galerias, foi construída utilizando CSS Grid para criar um layout complexo, alinhado e responsivo.
-* **Design Responsivo**: O site se adapta a diferentes tamanhos de tela (desktops, tablets e celulares) usando Media Queries, garantindo uma boa experiência de usuário em qualquer dispositivo.
-* **Galerias por Categoria**: O portfólio é organizado em seções temáticas (Natureza, Retratos, Paisagens e Urbano), permitindo uma navegação intuitiva.
-* **Estrutura Semântica**: O código HTML foi escrito utilizando tags semânticas (`<header>`, `<footer>`, `<section>`, `<nav>`) para melhor acessibilidade e SEO.
+**[➡️ View the live demo here](https://gabriel-wav.github.io/Photographer-Wilson-Static-Site/)**
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## ✨ Key Features
+
+* **CSS Grid Layout**: The main structure of the pages, especially the galleries, was built using CSS Grid to create a complex, well-aligned, and responsive layout.
+* **Responsive Design**: The website adapts to different screen sizes (desktops, tablets, and mobile devices) using Media Queries, ensuring a solid user experience across all devices.
+* **Category-Based Galleries**: The portfolio is organized into thematic sections (Nature, Portraits, Landscapes, and Urban), enabling intuitive navigation.
+* **Semantic Structure**: The HTML code is written using semantic tags (`<header>`, `<footer>`, `<section>`, `<nav>`) to improve accessibility and SEO.
+
+---
+
+## 🛠️ Technologies Used
 
 * **HTML5**
 * **CSS3**
-    * **CSS Grid Layout** para a estrutura principal.
-    * **Flexbox** para alinhamento de componentes menores (como menus e cabeçalhos).
-    * **Media Queries** para responsividade.
+    * **CSS Grid Layout** for the main structure
+    * **Flexbox** for aligning smaller components (such as menus and headers)
+    * **Media Queries** for responsiveness
 
 ---
 
-## 🚀 Como Visualizar o Projeto
+## 🚀 How to View the Project
 
-Este é um projeto front-end estático. Não é necessário nenhum servidor ou instalação de dependências.
+This is a static front-end project. No server or dependency installation is required.
 
-1.  **Clone o repositório:**
+1. **Clone the repository:**
     ```bash
-    git clone [https://github.com/gabriel-wav/Portfolio-Fotografia.git](https://github.com/gabriel-wav/Portfolio-Fotografia.git)
+    git clone https://github.com/gabriel-wav/Portfolio-Fotografia.git
     ```
-2.  **Navegue até a pasta do projeto:**
+2. **Navigate to the project folder:**
     ```bash
     cd Portfolio-Fotografia
     ```
-3.  **Abra o arquivo `index.html`** diretamente no seu navegador de preferência.
+3. **Open the `index.html` file** directly in your preferred browser.
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📁 Project Structure
 
-- `index.html` – Página inicial do portfólio
-- `contato.html` – Informações de contato
-- `sobre.html` – Sobre o fotógrafo
-- `galeria.html` – Galeria principal de fotos
-- `natureza.html`, `paisagens.html`, `retratos.html`, `urbano.html` – Categorias de fotografia
-- `style.css` – Estilização principal utilizando CSS Grid
-- `images/` – Pasta com as imagens utilizadas
+- `index.html` – Portfolio homepage  
+- `contato.html` – Contact information  
+- `sobre.html` – About the photographer  
+- `galeria.html` – Main photo gallery  
+- `natureza.html`, `paisagens.html`, `retratos.html`, `urbano.html` – Photography categories  
+- `style.css` – Main styling using CSS Grid  
+- `images/` – Folder containing the images used
