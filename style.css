@@ -1,785 +1,854 @@
-/* Reset de estilos */
+/* ==========================================================================
+   RESET
+   ========================================================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* Garante que padding e border são incluídos no tamanho total dos elementos */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+/* ==========================================================================
+   BASE
+   ========================================================================== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #393434;
-    /* Cor de fundo do site */
-    color: #fff;
-    /* Cor do texto */
-    line-height: 1.6;
-    /* Espaçamento entre linhas de texto */
-    width: 100%;
-    /* height: 100%; /* Removido para permitir que o body cresça com o conteúdo */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #393434;
+  color: #fff;
+  line-height: 1.6;
+  width: 100%;
 }
 
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* ==========================================================================
+   HEADER & NAVEGAÇÃO
+   ========================================================================== */
 header {
-    display: flex;
-    /* Usando Flexbox para organizar os itens do cabeçalho */
-    justify-content: space-between;
-    /* Espaçamento entre logo/título e menu */
-    align-items: center;
-    /* Alinhamento vertical */
-    width: 100%;
-    height: 70px;
-    padding: 10px 20px; /* Padding ajustado do original do usuário */
-    background-color: #333;
-    /* Cor de fundo do cabeçalho */
-    box-shadow: 0px 5px 20px black;
-    /* Sombra para destacar o cabeçalho */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 70px;
+  padding: 10px 20px;
+  background-color: #333;
+  box-shadow: 0px 5px 20px black;
 }
 
-/* Novo container para agrupar logo e título */
 .logo-e-titulo {
-    display: flex;
-    align-items: center; /* Alinha o logo e o título verticalmente */
-    gap: 15px; /* Espaço entre o logo e o título */
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  width: 45px;
+  height: 45px;
+  background-color: #ccc;
+  border-radius: 10px;
+  display: block;
+}
+
+#a-titulo-site-header {
+  text-decoration: none;
 }
 
 .titulo-site-header {
-    text-decoration: none; /* Removido do #a-titulo-site-header e aplicado diretamente */
-    color: #fff; /* Cor do texto do título */
-    font-size: 1.6em; /* Tamanho da fonte do título (ajuste conforme preferir) */
-    margin: 0; /* Remove margens padrão do h2 */
-    font-weight: 600; /* Peso da fonte (opcional) */
-}
-
-#a-titulo-site-header { /* Seletor de ID para o link do título */
-    text-decoration: none; /* Garante que o link não tenha sublinhado */
-}
-
-
-h1 { /* Estilo para o H1 principal da página Galeria, mantido do usuário */
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 2em; /* Defaulting to a common large size */
-}
-
-
-.logo {
-    width: 45px;
-    height: 45px;
-    background-color: #ccc;
-    border-radius: 10px;
-    /* Bordas arredondadas para o logo */
-    display: block; /* Garante que o link da imagem se comporte bem no flex */
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: 600;
+  margin: 0;
+  text-decoration: none;
 }
 
 .menu {
-    list-style: none;
-    /* Remove marcadores da lista */
-    display: flex;
-    /* Menu horizontal */
+  list-style: none;
+  display: flex;
 }
 
 .menu li a {
-    color: #fff;
-    /* Cor do texto dos links */
-    text-decoration: none;
-    /* Remove sublinhado dos links */
-    padding: 10px 20px;
-    border-radius: 20px;
-    margin-left: 10px;
-    transition: background-color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
 }
 
 .menu li a:hover {
-    background-color: #6a6969;
-    /* Cor de fundo ao passar o mouse */
+  background-color: #6a6969;
 }
 
-/* ESTILOS PARA OUTROS CONTAINERS (NÃO DA GALERIA E NÃO DA PÁGINA SOBRE/CONTATO PRINCIPAL) - MANTIDOS DO USUÁRIO */
-.container { /* Este .container não é o da página Sobre nem Contato */
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 0.7fr 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    grid-template-areas:
-        "sidenav item1 item2"
-        "sidenav item3 item4"
-        "footer footer footer";
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid #fff;
+/* ==========================================================================
+   SIDENAV — usado por .container (index, natureza, paisagens, retratos, urbano)
+   ========================================================================== */
+.sidenav {
+  grid-area: sidenav;
+  background-color: #1e3a8a;
+  color: #f0f4ff;
+  border-radius: 20px;
+  padding: 20px;
+  height: 700px;
+  width: 300px;
+}
+
+.sidenav h2 {
+  color: #a9c5ff;
+  margin-bottom: 12px;
+  font-size: 1.5em;
+  border-bottom: 1px solid #5a6882;
+  padding-bottom: 8px;
+}
+
+.sidenav h3 {
+  color: #a9c5ff;
+  margin: 20px 0 10px 0;
+  font-size: 1.2em;
+  border-bottom: 1px dashed #5a6882;
+  padding-bottom: 6px;
+}
+.sidenav p {
+  margin-top: 10px;
+  font-size: 0.95em;
+  line-height: 1.6;
+}
+
+.sidenav .listasidenav {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 0;
+}
+
+.sidenav .listasidenav li {
+  padding: 0;
+}
+
+.sidenav .listasidenav li a {
+  display: block;
+  background-color: #3b5998;
+  color: #fff;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 0.9em;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.sidenav .listasidenav li a:hover {
+  background-color: #007bff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   CONTAINER — index, natureza, paisagens, retratos, urbano (CSS Grid)
+   ========================================================================== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.7fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+    "sidenav item1 item2"
+    "sidenav item3 item4"
+    "footer  footer footer";
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #fff;
 }
 
 .item:nth-child(2) {
-    grid-area: item1;
+  grid-area: item1;
 }
-
 .item:nth-child(3) {
-    grid-area: item2;
+  grid-area: item2;
 }
-
 .item:nth-child(4) {
-    grid-area: item3;
+  grid-area: item3;
 }
-
 .item:nth-child(5) {
-    grid-area: item4;
+  grid-area: item4;
 }
 
 .item {
-    background-color: #ccc;
-    border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  background-color: #ccc;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-/* FIM DOS ESTILOS PARA OUTROS CONTAINERS */
+.item p {
+  margin-top: 10px;
+  color: #333;
+}
 
+.fotos {
+  padding: 20px 0 0 0;
+}
 
-/* === INÍCIO DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
-/* ESTA SEÇÃO (GALERIA) NÃO SERÁ ALTERADA CONFORME SOLICITADO */
+/* ==========================================================================
+   FOOTER — .container (index, categorias)
+   ========================================================================== */
+.footer {
+  grid-area: footer;
+  background-color: #6a6969;
+  border-radius: 20px;
+  text-align: center;
+  padding: 30px;
+}
+
+.footer h3 {
+  margin-bottom: 15px;
+}
+
+.footer p {
+  margin-bottom: 15px;
+}
+
+.footer .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-icons img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   CONTAINER2 — sobre.html e contato.html (CSS Grid, 1 coluna)
+   ========================================================================== */
+.container2 {
+  max-width: 1200px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "main-content"
+    "page-footer";
+  gap: 20px;
+  padding: 20px;
+  border: 1px solid #fff;
+}
+
+/* --- Página Sobre --- */
+.container2 .sobre {
+  grid-area: main-content;
+  background-color: #1e3a8a;
+  color: #f0f4ff;
+  border-radius: 20px;
+  padding: 30px 35px;
+  height: auto;
+  width: 100%;
+}
+
+.container2 .sobre h2 {
+  padding: 0 0 12px 0;
+  margin: 0 0 25px 0;
+  font-size: 1.5em;
+  text-align: center;
+  color: #a9c5ff;
+  border-bottom: 1px solid #5a6882;
+}
+
+.container2 .sobre p {
+  font-size: 1em;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.container2 .sobre .listasidenav {
+  list-style: none;
+  padding: 20px 0 0 0;
+  margin-top: 35px;
+  border-top: 1px solid #5a6882;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 15px;
+}
+
+.container2 .sobre .listasidenav li {
+  padding: 0;
+}
+
+.container2 .sobre .listasidenav li a {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9em;
+  display: inline-block;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.container2 .sobre .listasidenav li a:hover {
+  background-color: #007bff;
+  transform: translateY(-2px);
+}
+
+/* --- Página Contato --- */
+.container2 .sobre2 {
+  grid-area: main-content;
+  background-color: #1e3a8a;
+  color: #f0f4ff;
+  border-radius: 20px;
+  padding: 30px 35px;
+  height: auto;
+  width: 100%;
+}
+
+.container2 .sobre2 h2 {
+  padding: 0 0 12px 0;
+  margin: 0 0 25px 0;
+  font-size: 1.5em;
+  text-align: center;
+  color: #a9c5ff;
+  border-bottom: 1px solid #5a6882;
+}
+
+.container2 .sobre2 h3 {
+  padding: 0 0 6px 0;
+  margin: 30px 0 12px 0;
+  font-size: 1.5em;
+  color: #a9c5ff;
+  border-bottom: 1px dashed #5a6882;
+  text-align: left;
+}
+
+.container2 .sobre2 p {
+  font-size: 1em;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  max-width: 700px;
+}
+
+.container2 .sobre2 p.info-contato {
+  margin-bottom: 12px;
+  padding-left: 12px;
+  border-left: 3px solid #689ef3;
+}
+
+.container2 .sobre2 .listasidenav {
+  list-style: none;
+  padding: 25px 0 0 0;
+  margin-top: 40px;
+  border-top: 1px solid #5a6882;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 18px;
+}
+
+.container2 .sobre2 .listasidenav li {
+  padding: 0;
+}
+
+.container2 .sobre2 .listasidenav li a {
+  background-color: #3b5998;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9em;
+  display: inline-block;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.container2 .sobre2 .listasidenav li a:hover {
+  background-color: #007bff;
+  transform: translateY(-2px);
+}
+
+/* --- Rodapé de .container2 --- */
+.container2 .footer2 {
+  grid-area: page-footer;
+  background-color: #6a6969;
+  border-radius: 20px;
+  text-align: center;
+  padding: 30px;
+}
+
+.container2 .footer2 h3 {
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.container2 .footer2 p {
+  margin-bottom: 15px;
+  color: #f0f0f0;
+  font-size: 1em;
+  line-height: 1.6;
+}
+
+.container2 .footer2 p a {
+  color: #ddeeff;
+}
+
+.container2 .footer2 .social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.container2 .footer2 .social-icons img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.contato-link {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   CONTAINER3 — galeria.html (Flexbox)
+   ========================================================================== */
 .container3 {
-    display: flex; 
-    flex-wrap: wrap; 
-    max-width: 1200px; 
-    margin: 20px auto; 
-    padding: 20px; 
-    gap: 20px; 
-    border: 1px solid #fff; 
-    justify-content: center; 
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  gap: 20px;
+  border: 1px solid #fff;
+  justify-content: center;
 }
 
-.container3 .sidenav { 
-    flex-basis: 100%; 
-    flex-grow: 0;
-    flex-shrink: 0;
-    order: 1; 
-    background-color: #1E3A8A; 
-    color: #F0F4FF; 
-    padding: 20px;
-    border-radius: 20px; 
-    height: auto; 
-    text-align: center; 
+/* Sidenav da galeria */
+.container3 .sidenav {
+  flex-basis: 100%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  order: 1;
+  background-color: #1e3a8a;
+  color: #f0f4ff;
+  padding: 20px;
+  border-radius: 20px;
+  height: auto;
+  text-align: center;
+  width: auto;
 }
 
-.container3 .sidenav h2 { 
-    color: #689ef3; 
-    margin-bottom: 10px; 
-    font-size: 1.5em; 
-    border-bottom: 1px solid #5a6882;
-    padding-bottom: 8px;
-    display: inline-block; 
+.container3 .sidenav h2 {
+  color: #a9c5ff;
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  border-bottom: 1px solid #5a6882;
+  padding-bottom: 8px;
+  display: inline-block;
 }
 
-.container3 .sidenav p { 
-    font-size: 1em; 
-    line-height: 1.6;
-    margin-top: 10px; 
-    margin-bottom: 15px;
-    max-width: 800px; 
-    margin-left: auto;
-    margin-right: auto;
+.container3 .sidenav p {
+  font-size: 1em;
+  line-height: 1.6;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container3 .sidenav .listasidenav { 
-    list-style: none; 
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    justify-content: center; 
-    flex-wrap: wrap; 
-    gap: 10px; 
+.container3 .sidenav .listasidenav {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.container3 .sidenav .listasidenav li { 
-    padding: 0; 
+.container3 .sidenav .listasidenav li {
+  padding: 0;
 }
 
-.container3 .sidenav .listasidenav li a { 
-    color: #F0F4FF; 
-    text-decoration: none;
-    display: block;
-    padding: 8px 15px; 
-    border-radius: 6px;
-    transition: background-color 0.2s ease;
+.container3 .sidenav .listasidenav li a {
+  background-color: #3b5998;
+  color: #f0f4ff;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 15px;
+  border-radius: 6px;
+  font-size: 0.9em;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .container3 .sidenav .listasidenav li a:hover {
-    background-color: #3b5998; 
+  background-color: #007bff;
+  transform: translateY(-2px);
 }
 
+/* Itens da galeria */
 .container3 .item2 {
-    background-color: #ccc; 
-    color: #333; 
-    padding: 15px;
-    border-radius: 20px; 
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    order: 2; 
-    flex-grow: 0; 
-    flex-shrink: 0; 
-    flex-basis: 440px; 
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: #ccc;
+  color: #333;
+  padding: 15px;
+  border-radius: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  order: 2;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 440px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .container3 .item2 img.fotos,
 .container3 .item2 img.fotos2 {
-    width: 1100px; /* Mantido do CSS fornecido pelo usuário */
-    height: 500px; /* Mantido do CSS fornecido pelo usuário */
-    object-fit: cover; 
-    border-radius: 10px; 
-    margin-bottom: 10px; 
-    display: block;
-    margin-left: auto; 
-    margin-right: auto; 
+  width: 1100px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.container3 .item2 p { 
-    font-size: 0.9em;
-    margin-top: 5px; 
+.container3 .item2 p {
+  font-size: 0.9em;
+  margin-top: 5px;
 }
 
-.container3 .footer { 
-    flex-basis: 100%; 
-    order: 3; 
-    background-color: #6a6969; 
-    color: #fff;
-    padding: 30px; 
-    border-radius: 20px; 
-    text-align: center;
-    margin-top: 20px; 
+/* Rodapé da galeria */
+.container3 .footer {
+  flex-basis: 100%;
+  order: 3;
+  background-color: #6a6969;
+  color: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  margin-top: 20px;
+  grid-area: unset;
 }
 
 .container3 .footer h3 {
-    margin-bottom: 15px; 
-    font-size: 1.3em;
+  margin-bottom: 15px;
+  font-size: 1.3em;
 }
 
-.container3 .footer p { 
-    margin-bottom: 15px; 
-    font-size: 1em;
-    margin-top: 0;
+.container3 .footer p {
+  margin-bottom: 15px;
+  font-size: 1em;
+  margin-top: 0;
 }
+
 .container3 .footer p a {
-    color: #ddeeff; 
-    text-decoration: none;
+  color: #ddeeff;
+  text-decoration: none;
 }
+
 .container3 .footer p a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .container3 .footer .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px; 
+  display: flex;
+  justify-content: center;
+  gap: 15px;
 }
 
 .container3 .footer .social-icons img {
-    width: 30px; 
-    height: 30px;
-    border-radius: 50%;
-    transition: opacity 0.2s ease;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: opacity 0.2s ease;
 }
 
 .container3 .footer .social-icons a:hover img {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
-/* === FIM DOS ESTILOS ESPECÍFICOS DA PÁGINA GALERIA (.container3) === */
-
-
-/* === ESTILOS PARA PÁGINA CONTATO E/OU SOBRE USANDO .container2 === */
-.container2 { /* Container usado pela página de Contato e Sobre */
-    max-width: 1200px;
-    margin: 20px auto; 
-    display: grid;
-    /* A configuração de grid-template-columns e areas é específica para cada página que usa .container2 */
-    /* Para a página Sobre (com .sobre) e Contato (com .sobre2), o grid é definido como 1 coluna pelos grid-template-areas */
-    grid-template-columns: 1fr; /* Garante que o conteúdo ocupe a largura disponível */
-    grid-template-areas: 
-        "main-content" /* Nome genérico para a área de conteúdo principal */
-        "page-footer";  /* Nome genérico para o rodapé da seção */
-    gap: 20px;
-    padding: 20px;
-    border: 1px solid #fff; 
-}
-
-/* --- Início dos Estilos APENAS para Página "Sobre" --- */
-/* (quando <div class="sobre"> está dentro de <section class="container2">) */
-
-.container2 .sobre { /* Seção de conteúdo principal da página Sobre */
-    grid-area: main-content; /* Mapeia para a área de conteúdo principal */
-    background-color: #1E3A8A; 
-    color: #F0F4FF; 
-    border-radius: 20px; 
-    padding: 30px 35px; /* Padding interno ajustado */
-    height: auto; /* Altura se ajusta ao conteúdo, sobrescreve o .sobre genérico */
-    width: 100%; 
-}
-
-.container2 .sobre h2 { /* Título "Sobre Mim" na página Sobre */
-    padding: 0; 
-    margin: 0 0 25px 0; /* Margem inferior ajustada */
-    font-size: 2.1em; /* Tamanho da fonte ajustado */
-    text-align: center; 
-    color: #a9c5ff; 
-    border-bottom: 1px solid #5a6882; 
-    padding-bottom: 12px; /* Espaço abaixo da linha separadora */
-}
-
-.container2 .sobre p {
-    font-size: 1.0em; /* Tamanho de fonte ajustado para parágrafos */
-    line-height: 1.7; /* Altura da linha ajustada para melhor legibilidade */
-    margin-top: 0; 
-    margin-bottom: 20px; /* Espaçamento consistente abaixo dos parágrafos */
-    max-width: 750px; /* Limita a largura para melhor leitura */
-    margin-left: auto; /* Centraliza o bloco de parágrafo se max-width for atingido */
-    margin-right: auto; /* Centraliza o bloco de parágrafo se max-width for atingido */
-    text-align: left; /* Alinhamento padrão para parágrafos longos */
-}
-
-.container2 .sobre .listasidenav { /* Lista de categorias no final da página Sobre */
-    margin-top: 35px; /* Espaço antes da lista */
-    padding-top: 20px; /* Espaço acima da lista, dentro da borda */
-    border-top: 1px solid #5a6882; /* Linha separadora acima da lista */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 10px 15px; /* Espaçamento entre os links */
-    list-style: none; 
-    padding-left: 0; 
-}
-
-.container2 .sobre .listasidenav li {
-    padding: 0; 
-}
-
-.container2 .sobre .listasidenav li a {
-    background-color: #3b5998; 
-    color: #fff; 
-    padding: 8px 16px; /* Padding interno dos links */
-    border-radius: 5px; 
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-    font-size: 0.9em; 
-}
-
-.container2 .sobre .listasidenav li a:hover {
-    background-color: #007bff; 
-    transform: translateY(-2px); 
-}
-/* --- Fim dos Estilos APENAS para Página "Sobre" --- */
-
-
-/* --- Início dos Estilos APENAS para Página "Contato" --- */
-/* (quando <div class="sobre2"> está dentro de <section class="container2">) */
-.container2 .sobre2 { /* Seção de conteúdo principal da página de contato */
-    grid-area: main-content; /* Usa a mesma área do grid que a página Sobre */
-    background-color: #1E3A8A; 
-    color: #F0F4FF; 
-    border-radius: 20px; 
-    padding: 30px 35px; 
-    height: auto; 
-    width: 100%; 
-}
-
-.container2 .sobre2 h2 { /* Título "Contatos" na página de contato */
-    padding: 0; 
-    margin: 0 0 25px 0; 
-    font-size: 2em; 
-    text-align: center; 
-    color: #a9c5ff; 
-    border-bottom: 1px solid #5a6882; 
-    padding-bottom: 12px; 
-}
-
-.container2 .sobre2 h3 { /* Subtítulos na página de contato */
-    padding: 0; 
-    margin: 30px 0 12px 0; 
-    font-size: 1.5em; 
-    color: #a9c5ff; 
-    border-bottom: 1px dashed #5a6882; 
-    padding-bottom: 6px; 
-    text-align: left; 
-}
-
-.container2 .sobre2 p {
-    font-size: 1em; 
-    line-height: 1.7; 
-    margin-top: 0; 
-    margin-bottom: 18px; 
-    max-width: 700px; /* Mantido para parágrafos na página de contato */
-}
-
-.container2 .sobre2 p.info-contato { 
-    margin-bottom: 12px; 
-    padding-left: 12px; 
-    border-left: 3px solid #689ef3; 
-    font-size: 1em; 
-    line-height: 1.7; 
-}
-
-
-.container2 .sobre2 .listasidenav { 
-    margin-top: 40px; 
-    padding-top: 25px; 
-    border-top: 1px solid #5a6882; 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; 
-    gap: 12px 18px; 
-    list-style: none; 
-    padding-left: 0; 
-}
-
-.container2 .sobre2 .listasidenav li {
-    padding: 0; 
-}
-
-.container2 .sobre2 .listasidenav li a {
-    background-color: #3b5998; 
-    color: #fff; 
-    padding: 8px 18px; 
-    border-radius: 5px; 
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    display: inline-block;
-    font-size: 0.9em; 
-}
-
-.container2 .sobre2 .listasidenav li a:hover {
-    background-color: #007bff; 
-    transform: translateY(-2px); 
-}
-/* --- Fim dos Estilos APENAS para Página "Contato" --- */
-
-
-.container2 .footer2 { /* Rodapé para páginas que usam .container2 (Sobre, Contato) */
-    grid-area: page-footer; /* Mapeia para a área de rodapé definida em .container2 */
-    background-color: #6a6969; 
-    border-radius: 20px; 
-    text-align: center;
-    padding: 30px;
-}
-
-.container2 .footer2 h3 {
-    margin-bottom: 15px;
-    color: #fff;
-}
-
-.container2 .footer2 p {
-    margin-bottom: 15px;
-    color: #f0f0f0;
-    max-width: none; 
-    font-size: 1em; 
-    line-height: 1.6; 
-}
-.container2 .footer2 p a {
-    color: #ddeeff;
-}
-
-.container2 .footer2 .social-icons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.container2 .footer2 .social-icons img {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-.contato-link{ /* Estilo genérico para links de contato, se usado */
-    color: #ffffff;
-    text-decoration: underline;
-}
-
-
-/* ESTILOS GENÉRICOS - MANTIDOS DO USUÁRIO */
-/* Sidenav genérico (usado por .container, mas .container2 .sobre e .container2 .sobre2 têm precedência) */
-.sidenav { /* Este é o .sidenav genérico do usuário, usado por .container (página home, por exemplo) */
-    grid-area: sidenav; /* Mapeado para o grid-template-areas de .container */
-    background-color: #1E3A8A;
-    color: #F0F4FF;
-    border-radius: 20px;
-    padding: 20px;
-    height: 700px; 
-    width: 300px; 
-}
-
-div p { 
-    margin-top: 10px;
-}
-
-.listasidenav { /* Este é o .listasidenav genérico, usado por .sidenav genérico ou se não houver um mais específico */
-    text-decoration: none;
-    list-style: none;
-    /* padding: 0;  Adicionado para resetar, caso necessário */
-    /* margin: 0; Adicionado para resetar, caso necessário */
-}
-
-li { 
-    padding: 5px 0px 10px 0;
-}
-
-li a { 
-    color: #fff;
-}
-
-div h2 { 
-    color: #689ef3;
-}
-
-.fotos { 
-    padding: 20px 0 0px 0;
-}
-
-/* Footer genérico (usado por .container, mas .container2 .footer2 tem precedência para Sobre/Contato) */
-.footer {
-    grid-area: footer; /* Mapeado para o grid-template-areas de .container */
-    background-color: #6a6969;
-    border-radius: 20px;
-    text-align: center;
-    padding: 30px;
-}
-
-.footer h3 { 
-    margin-bottom: 15px;
-}
-
-.footer p { 
-    margin-bottom: 15px;
-}
-
-.footer .social-icons { 
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.footer .social-icons img { 
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-}
-
-
-/* .sobre genérico, já estilizado especificamente para .container2 .sobre */
-/* Se houver outra página que use apenas ".sobre" sem ".container2", esta regra se aplicará */
-.sobre { 
-    grid-area: sidenav;
-    background-color: #1E3A8A;
-    color: #F0F4FF;
-    border-radius: 20px;
-    padding: 20px;
-    height: 700px;
-    width: 100%;
-}
-
-/* .sobre2 genérico, já estilizado especificamente para .container2 .sobre2 */
-/* Se houver outra página que use apenas ".sobre2" sem ".container2", estas regras se aplicarão */
-.sobre2 h2 { 
-    padding: 0px 0 10px 0;
-}
-
-.sobre2 h3 { 
-    padding: 20px 0 10px 0;
-}
-
-.sobre2 h4 { 
-    padding: 20px 0 10px 0;
-}
-
-.sobre2 { 
-    grid-area: sidenav;
-    background-color: #1E3A8A;
-    color: #F0F4FF;
-    border-radius: 20px;
-    padding: 20px;
-    height: 750px;
-    width: 100%;
-}
-/* FIM DOS ESTILOS GENÉRICOS */
-
-
-/* Rodapé Principal da Página (fora da section) */
+/* ==========================================================================
+   RODAPÉ PRINCIPAL (fora da section)
+   ========================================================================== */
 body > footer {
-    text-align: center;
+  text-align: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+  margin-top: 30px;
+  font-size: 0.9em;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES
+   ========================================================================== */
+
+/* --- Tablet (≤ 992px) --- */
+@media (max-width: 992px) {
+  /* Index / Categorias: sidenav em cima, fotos em 2 colunas */
+  .container {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "sidenav sidenav"
+      "item1   item2"
+      "item3   item4"
+      "footer  footer";
+  }
+
+  .sidenav {
+    width: 100%;
+    height: auto;
+  }
+
+  .item .fotos {
+    width: 100%;
+    height: auto;
+  }
+
+  /* Galeria */
+  .container3 .item2 {
+    flex-basis: calc(50% - 10px);
+  }
+
+  /* Sobre / Contato */
+  .container2 .sobre2,
+  .container2 .sobre {
+    padding: 25px 30px;
+  }
+
+  .container2 .sobre2 p,
+  .container2 .sobre p {
+    max-width: 100%;
+  }
+}
+
+/* --- Mobile (≤ 768px) --- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    height: auto;
+    padding-bottom: 15px;
+    gap: 10px;
+  }
+
+  .logo-e-titulo {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .menu {
+    margin-top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .menu li {
+    margin: 5px;
+  }
+  .menu li a {
+    margin-left: 0;
+  }
+
+  /* Index / Categorias: coluna única */
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sidenav"
+      "item1"
+      "item2"
+      "item3"
+      "item4"
+      "footer";
+  }
+
+  .item {
+    width: 100%;
+  }
+
+  .item .fotos {
+    width: 100%;
+    height: auto;
+    padding: 10px 0 0 0;
+  }
+
+  /* Galeria */
+  .container3 .item2 {
+    flex-basis: 100%;
+  }
+
+  .container3 .item2 img.fotos,
+  .container3 .item2 img.fotos2 {
+    width: 100%;
+    max-width: 410px;
+    height: auto;
+    aspect-ratio: 410 / 300;
+  }
+
+  /* Sobre / Contato */
+  .container2 .sobre2,
+  .container2 .sobre {
     padding: 20px;
-    background-color: #333; 
-    color: #fff;
+  }
+
+  .container2 .sobre2 h2,
+  .container2 .sobre h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+
+  .container2 .sobre2 h3 {
+    font-size: 1.4em;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+
+  .container2 .sobre2 p,
+  .container2 .sobre p {
+    font-size: 0.95em;
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+
+  .container2 .sobre2 p.info-contato {
+    padding-left: 10px;
+    font-size: 0.95em;
+  }
+
+  .container2 .sobre2 .listasidenav,
+  .container2 .sobre .listasidenav {
     margin-top: 30px;
+    padding-top: 20px;
+    gap: 10px 15px;
+  }
+
+  .container2 .sobre2 .listasidenav li a,
+  .container2 .sobre .listasidenav li a {
+    padding: 8px 15px;
     font-size: 0.9em;
-}
-.copyright {
-    text-align: center; 
+  }
 }
 
+/* --- Telas pequenas (≤ 480px) --- */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8em;
+  }
+  .titulo-site-header {
+    font-size: 1.2em;
+  }
 
-/* Media Queries para Responsividade */
-@media (max-width: 992px) { 
-    /* Galeria */
-    .container3 .item2 { 
-        flex-basis: calc(50% - 10px); 
-    }
+  /* Index / Categorias */
+  .container {
+    padding: 15px;
+    gap: 15px;
+  }
 
-    /* Contato e Sobre (dentro de .container2) */
-    .container2 .sobre2, 
-    .container2 .sobre { 
-        padding: 25px 30px; 
-    }
-    .container2 .sobre2 p,
-    .container2 .sobre p {
-        max-width: 100%; 
-    }
+  .sidenav {
+    padding: 15px;
+  }
+  .sidenav h2 {
+    font-size: 1.5em;
+  }
+
+  .sidenav .listasidenav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .item {
+    border-radius: 12px;
+  }
+
+  .footer {
+    padding: 20px;
+  }
+  .footer h3 {
+    font-size: 1.1em;
+  }
+
+  /* Galeria */
+  .container3 .sidenav {
+    padding: 15px;
+  }
+  .container3 .sidenav h2 {
+    font-size: 1.5em;
+  }
+  .container3 .sidenav .listasidenav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container3 .item2 {
+    padding: 10px;
+    flex-basis: 100%;
+  }
+  .container3 .footer {
+    padding: 20px;
+  }
+  .container3 .footer h3 {
+    font-size: 1.1em;
+  }
+
+  /* Sobre / Contato */
+  .container2 .sobre2,
+  .container2 .sobre {
+    padding: 15px 20px;
+  }
+
+  .container2 .sobre2 h2,
+  .container2 .sobre h2 {
+    font-size: 1.5em;
+  }
+
+  .container2 .sobre2 h3 {
+    font-size: 1.25em;
+    margin-top: 20px;
+  }
+
+  .container2 .sobre2 p,
+  .container2 .sobre p {
+    font-size: 0.9em;
+    line-height: 1.6;
+  }
+
+  .container2 .sobre2 p.info-contato {
+    font-size: 0.9em;
+  }
+
+  .container2 .sobre2 .listasidenav,
+  .container2 .sobre .listasidenav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .container2 .sobre2 .listasidenav li a,
+  .container2 .sobre .listasidenav li a {
+    padding: 8px 12px;
+    font-size: 0.85em;
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+  }
 }
-
-@media (max-width: 768px) { 
-    header {
-        flex-direction: column;
-        height: auto; 
-        padding-bottom: 15px;
-        gap: 10px; 
-    }
-    .logo-e-titulo {
-        justify-content: center; 
-        width: 100%;
-    }
-    .menu {
-        margin-top: 10px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .menu li {
-        margin: 5px; 
-    }
-    .menu li a {
-        margin-left: 0; 
-    }
-
-    /* Galeria */
-    .container3 .item2 { 
-        flex-basis: 100%; 
-    }
-    .container3 .item2 img.fotos,
-    .container3 .item2 img.fotos2 {
-        width: 100%; 
-        max-width: 410px; 
-        height: auto; 
-        aspect-ratio: 410 / 300; 
-    }
-
-    /* Contato e Sobre (dentro de .container2) */
-    .container2 .sobre2,
-    .container2 .sobre {
-        padding: 20px; 
-    }
-    .container2 .sobre2 h2,
-    .container2 .sobre h2 {
-        font-size: 1.8em; 
-        margin-bottom: 20px; 
-    }
-    .container2 .sobre2 h3 { /* Apenas Contato tem H3 no HTML fornecido */
-        font-size: 1.4em; 
-        margin-top: 25px; 
-        margin-bottom: 10px; 
-    }
-    .container2 .sobre2 p,
-    .container2 .sobre p {
-        font-size: 0.95em; 
-        line-height: 1.65; 
-        margin-bottom: 16px; 
-    }
-    .container2 .sobre2 p.info-contato { /* Apenas Contato */
-        padding-left: 10px; 
-        border-left-width: 3px; 
-        font-size: 0.95em; 
-        line-height: 1.65; 
-    }
-    .container2 .sobre2 .listasidenav,
-    .container2 .sobre .listasidenav {
-        margin-top: 30px; 
-        padding-top: 20px; 
-        gap: 10px 15px; 
-    }
-    .container2 .sobre2 .listasidenav li a,
-    .container2 .sobre .listasidenav li a {
-        padding: 8px 15px; 
-        font-size: 0.9em; 
-    }
-}
-
-@media (max-width: 480px) { 
-    h1 { 
-        font-size: 1.8em;
-    }
-    .titulo-site-header { 
-        font-size: 1.2em; 
-    }
-
-    /* Galeria */
-    .container3 .sidenav { 
-        padding: 15px;
-    }
-    .container3 .sidenav h2 { 
-        font-size: 1.3em;
-    }
-     .container3 .sidenav .listasidenav {
-        flex-direction: column; 
-        align-items: center;
-    }
-    .container3 .item2 { 
-        padding: 10px;
-        flex-basis: 100%; 
-    }
-
-    .container3 .footer { 
-        padding: 20px;
-    }
-    .container3 .footer h3 { 
-        font-size: 1.1em;
-    }
-
-    /* Contato e Sobre (dentro de .container2) */
-    .container2 .sobre2,
-    .container2 .sobre {
-        padding: 15px 20px; 
-    }
-    .container2 .sobre2 h2,
-    .container2 .sobre h2 {
-        font-size: 1.6em; 
-    }
-    .container2 .sobre2 h3 { /* Apenas Contato */
-        font-size: 1.25em; 
-        margin-top: 20px; 
-    }
-    .container2 .sobre2 p,
-    .container2 .sobre p {
-        font-size: 0.9em; 
-        line-height: 1.6; 
-    }
-    .container2 .sobre2 p.info-contato { /* Apenas Contato */
-        font-size: 0.9em; 
-        line-height: 1.6; 
-    }
-    .container2 .sobre2 .listasidenav,
-    .container2 .sobre .listasidenav {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px; 
-    }
-    .container2 .sobre2 .listasidenav li a,
-    .container2 .sobre .listasidenav li a {
-        padding: 8px 12px; 
-        font-size: 0.85em; 
-        width: 100%; 
-        max-width: 220px; 
-        text-align: center;
-    }
-}
-
